@@ -1,0 +1,63 @@
+@import "../../../../../node_modules/swiper/swiper";
+.carousel {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("carousel", $mod){
+      @content;
+    }
+  }
+  &__list {
+    height: 100%;
+  }
+}
+.onlineBuy,
+.travel,
+.intro {
+  .swiper-pagination {
+    position: absolute;
+    @include option(bottom, 175, 31);
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include option(gap, 30, 17);
+
+    &-bullet {
+        display: inline-block;
+        @include option(height, 10);
+        @include option(width, 10);
+        @include option(min-width, 10);
+        @include option(border-radius, 10);
+        opacity: 0.7;
+        background: #F7F7F7;
+    }
+  }
+}
+
+@include NOT-DESKTOP() {
+  .onlineBuy,
+  .travel,
+  .intro {
+    .swiper-pagination {
+        width: 100%;
+        &-bullet-active {
+            opacity: 1;
+            @include option(height, 14);
+            @include option(width, 14);
+            @include option(min-width, 14);
+        } 
+    }
+  }
+}
+
+@include NOT-MOBILE-AND-TABLET() {
+  .travel,
+  .winners,
+  .intro {
+      .swiper-pagination-bullet-active {
+          opacity: 1;
+          animation: anim-width-pb 5.5s linear;
+          animation-fill-mode: forwards;
+      } 
+  }
+}

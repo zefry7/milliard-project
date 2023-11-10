@@ -1,0 +1,14 @@
+include form-label/form-label
+include form-error/form-error
+include checkbox/checkbox
+include radiogroup/radiogroup
+include input/input
+include select/select
+include select-date/select-date
+
+mixin form(content, params)
+  form.form&attributes(attributes)
+    if content
+      .form__title !{content.title}
+    block
+

@@ -1,0 +1,11 @@
+.api {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("api", $mod){
+      @content;
+    }
+    /*.api_#{$mod} & {
+      @content;
+    }*/
+  }
+}

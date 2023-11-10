@@ -1,0 +1,10 @@
+mixin select-date(content, params)
+  -var attr = splitProperties(attributes, ['name', 'value', 'data-validations']);
+  .select-date&attributes(attributes)
+    +form-label(content)
+    input(type='hidden').select-date__input&attributes(attr)
+    +select({options: {from: 1, to: 31}}, {error: false})(name=`_${attr.name}_dd` placeholder="ДД")
+    +select({options: {from: 1, to: 12}}, {error: false})(name=`_${attr.name}_mm` placeholder="ММ")
+    +select({options: {from: 2018, to: 1900}}, {error: false})(name=`_${attr.name}_yy` placeholder="ГГГГ")
+    +form-error
+    block

@@ -1,0 +1,11 @@
+.plain-text {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("plain-text", $mod){
+      @content;
+    }
+    /*.plain-text_#{$mod} & {
+      @content;
+    }*/
+  }
+}

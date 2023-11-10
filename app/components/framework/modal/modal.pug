@@ -1,0 +1,6 @@
+mixin modal()
+  - var id = splitProperties(attributes, ['id'])
+
+  +template-engine()&attributes(id)
+    .modal&attributes(attributes)
+      block

@@ -1,0 +1,4 @@
+mixin bitrix-panel(content, params)
+  if env.isBitrix
+    #panel.bitrix-panel&attributes(attributes) <?$APPLICATION->ShowPanel();?>
+      block

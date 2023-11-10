@@ -1,0 +1,13 @@
+mixin pug-mixin(name, content, params)
+  if typeof name === "object"
+    -params = content;
+    -content = name;
+    -name = content.name;
+
+
+  if content && content.hasOwnProperty("content") && content.hasOwnProperty("params")
+    -params = _.assign(params, content.params)
+    -content = content.content
+
+  +#{name}(content, params)&attributes(attributes)
+    block

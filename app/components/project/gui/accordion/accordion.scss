@@ -1,0 +1,57 @@
+.accordion {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("accordion", $mod){
+      @content;
+    }
+  }
+
+  @mixin checked() {
+    .accordion__item-input:checked + .accordion__item > & {
+      @content;
+    }
+  }
+  @mixin not-checked() {
+    .accordion__item-input:not(:checked) + .accordion__item > & {
+      @content;
+    }
+  }
+
+
+
+  display: block;
+
+  &__item {
+    display: block;
+  }
+
+  &__item-input {
+    display: none;
+  }
+  &__item-head {
+    display: block;
+    padding: 1em;
+
+    border: 1px solid darken(#cccccc, 20%);
+    background: #cccccc;
+
+    cursor: pointer;
+  }
+  &__item-body {
+    //display: none;
+    padding: 2em;
+    background: rgba(#000000, 0.05);
+  }
+  &__item-collapse {
+    overflow: hidden;
+    transition: height 0s ease-out 0.01s;
+
+
+    /*@include checked(){
+      height: auto;
+    }*/
+    @include not-checked(){
+      height: 0;
+    }
+  }
+}

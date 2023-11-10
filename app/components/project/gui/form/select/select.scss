@@ -1,0 +1,162 @@
+.select {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("select", $mod) {
+      @content;
+    }
+  }
+  $z-select: 10;
+
+
+  $WHITE: #000;
+
+  @mixin collapsed(){
+    .select__toggle:not(:checked) ~ * & {
+      @content;
+    }
+  }
+  @mixin expanded(){
+    .select__toggle:checked ~ * & {
+      @content;
+    }
+  }
+
+  display: inline-block;
+
+  &__view {
+    position: relative;
+    min-width: 63px;
+    padding: 0 10px;
+    transition: z-index 0.3s;
+
+    .select__toggle:checked ~ & {
+      //TODO магическое число, не смог понять почему именно 100
+      z-index: 100;
+    }
+  }
+
+  &__value { display: none; }
+  &__toggle { display: none; }
+
+  &__wrapper {
+    position: absolute;
+    z-index: $z-select;
+    top: -10px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    border-radius: 2px;
+    background-color: #ffffff;
+    transition: height 0.3s;
+
+    @include collapsed(){
+      height: 0 !important;
+    }
+    @include expanded(){
+      box-shadow: 5px 10px 20px -2px rgba(#000, 0.5);
+      z-index: $z-select + 1;
+    }
+  }
+
+  &__wrapper-container {
+    padding: 50px 0 5px;
+  }
+
+  &__label {
+    position: relative;
+    z-index: $z-select + 2;
+
+    display: block;
+    padding: 0 26px 9px 0;
+    box-sizing: border-box;
+
+    color: rgba($WHITE, 0.9);
+
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s 0.2s;
+
+    @include expanded() {
+      color: #999;
+      transition-delay: 0s;
+    }
+
+    &:after{
+      content: "";
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+
+      background-color: rgba($WHITE, 0.9);
+      transition: background-color 0.3s;
+
+      @include expanded() {
+        background-color: #aaa;
+
+      }
+
+    }
+
+    &:before{
+      content: "";
+      $h: 6px;
+
+      position: absolute;
+      top: 0;
+      bottom: $h;
+      right: 0;
+      margin: auto 4px;
+
+      @include triangle(8px, $h, rgba($WHITE, 0.9), B);
+      transition: border-color 0.3s, transform 0.3s;
+      @include expanded() {
+        @include triangle-color(#aaa, B);
+        transform: scale(1, -1);
+        //transform: rotate(180deg);
+      }
+    }
+  }
+
+
+
+
+  @mixin option-selected(){
+    .select__option-select:checked ~ & {
+      @content;
+    }
+  }
+  &__options-list {
+    max-height: 160px;
+    padding: 5px 10px;
+  }
+  &__option{
+    display: block;
+    //height: 21px;
+  }
+  &__option-select { display: none; }
+
+  &__option-text{
+    padding: 2px 5px;
+    //height: 21px;
+    margin: 4px -5px;
+
+    color: #bbb;
+    user-select: none;
+
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.3s;
+
+    @include hover(){
+      color: #000000;
+    }
+
+    @include option-selected() {
+      color: #000000;
+      background-color: #ccc;
+    }
+  }
+}

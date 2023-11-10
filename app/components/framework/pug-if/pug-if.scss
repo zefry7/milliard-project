@@ -1,0 +1,11 @@
+.pug-if {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("pug-if", $mod){
+      @content;
+    }
+    /*.pug-if_#{$mod} & {
+      @content;
+    }*/
+  }
+}

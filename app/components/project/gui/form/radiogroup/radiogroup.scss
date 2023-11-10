@@ -1,0 +1,8 @@
+.radiogroup {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("radiogroup", $mod){
+      @content;
+    }
+  }
+}

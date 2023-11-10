@@ -1,0 +1,10 @@
+mixin subpage(content, params)
+  -content = content || {}
+  -var attr = {"data-page":attributes["data-page"], "data-data":attributes["data-data"] };
+  -delete attributes["data-page"];
+  -delete attributes["data-data"];
+  script(type="text/template")&attributes(attr)
+    .subpage&attributes(attributes)
+      if content.hasOwnProperty("title")
+        +subpage-top(content.title, params)
+      block

@@ -1,0 +1,18 @@
+//https://www.materialui.co/socialcolors
+// $SOCIAL-COLORS: (
+  // fb: #3b5999,
+  // ig: #e4405f,
+  // tw: #55acee,
+  // vimeo: #1ab7ea,
+  // yt: #cd201f,
+  // vk: #4c75a3,
+  // tg: #0088cc,
+// );
+.social-block {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("social-block", $mod){
+      @content;
+    }
+  }
+}

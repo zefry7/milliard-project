@@ -1,0 +1,36 @@
+mixin template-engine(content, params)
+  -params = _.assign({nested:isTemplateEngine > 0}, params);
+  -isTemplateEngine++;
+
+  if params.nested
+    -params = _.assign({before: "{{{{template-engine}}}}", after: "{{{{/template-engine}}}}", tag: "template"}, params);
+
+  != params.before
+  #{params.tag || 'script'}(type="text/template").template-engine&attributes(attributes)
+    block
+  != params.after
+  -isTemplateEngine--;
+
+
+
+mixin switch(key)
+  | {{#switch !{key} }}
+  block
+  | {{/switch}}
+
+mixin case(value, options)
+  -
+    function init(str){
+      return Array.isArray(str) ? str.map(init).join(' ') : JSON.stringify(str);
+    }
+    function hash(obj){
+      return Object.keys(obj).map(key=>`${key}=${JSON.stringify(obj[key])}`).join(' ');
+    }
+  | {{#case !{init(value)} !{options && hash(options)}  }}
+  block
+  | {{/case}}
+
+mixin default(key)
+  | {{#default}}
+  block
+  | {{/default}}

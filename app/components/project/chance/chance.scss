@@ -1,0 +1,119 @@
+.chance {
+  position: relative;
+
+  .button {
+    width: 275px;
+    height: 68px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    background: url(../../../images/chance/display/bc-center.svg) center 100% no-repeat;
+  }
+
+  &__block-top {
+    @include option(padding, 141 0 0 143);
+    height: 785px;
+    position: relative;
+    background: url(../../../images/chance/display/bc-top.svg) left bottom/ cover no-repeat;
+
+    .chance__title {
+      position: relative;
+      z-index: 4;
+      margin-bottom: 17px;
+      color: #FFF;
+      font-size: 60px;
+      font-weight: 800;
+      line-height: 95%;
+      letter-spacing: -0.2px;
+      text-transform: uppercase;
+    }
+    .chance__description {
+      margin-bottom: 30px;
+      width: 454px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 145%;
+      color: #FFF;
+    }
+    .chance__img {
+      position: absolute;
+      top: -20px;
+      right: 0;
+    }
+  }
+  &__block-center {
+    @include option(padding, 155 127 0 0);
+    align-self: flex-end;
+    height: 601px;
+
+    .chance__title {
+      position: relative;
+      z-index: 4;
+      margin-bottom: 17px;
+      color: #FFF;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 95%;
+      letter-spacing: -0.2px;
+      text-transform: uppercase;
+    }
+    .chance__description {
+      margin-bottom: 30px;
+      width: 454px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 145%;
+      color: #FFF;
+    }
+    .chance__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__block-bottom {
+    @include option(padding, 255 0 0 143);
+    height: 830px;
+    position: relative;
+    background: url(../../../images/chance/display/bc-bottom.svg) left top/ cover no-repeat;
+
+    .chance__title {
+      position: relative;
+      z-index: 4;
+      margin-bottom: 17px;
+      color: #FFF;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 95%;
+      letter-spacing: -0.2px;
+      text-transform: uppercase;
+    }
+    .chance__description {
+      margin-bottom: 30px;
+      width: 454px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 145%;
+      color: #FFF;
+    }
+    .chance__img {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  &__decor-top {
+    position: absolute;
+    top: -28px;
+    width: 100%;
+    height: 165px;
+  }
+  &__decor-bottom {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    height: 165px;
+  }
+}

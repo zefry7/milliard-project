@@ -1,0 +1,11 @@
+.tab {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("tab", $mod){
+      @content;
+    }
+    /*.tab_#{$mod} & {
+      @content;
+    }*/
+  }
+}

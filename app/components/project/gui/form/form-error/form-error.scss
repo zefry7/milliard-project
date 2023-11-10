@@ -1,0 +1,10 @@
+.form-error {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("form-error", $mod){
+      @content;
+    }
+  }
+  font-size: 0.8em;
+  color: RED;
+}

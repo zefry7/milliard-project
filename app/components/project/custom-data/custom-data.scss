@@ -1,0 +1,8 @@
+.custom-data {
+  // Константы
+  @mixin mod($mod) {
+    .custom-data_#{$mod} & {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+mixin accordion(content, params)
+  .accordion&attributes(attributes)
+    if content
+      -params = _.assign({"name": "accordion" + unique()}, params);
+      +pug-list(content, "accordion__item")&attributes(params)
+    block
+
+mixin accordion__item(content, params)
+  -attributes = _.assign({"type": "checkbox", "id":unique(), "name":"accordion"}, attributes);
+  -var id = content.id || attributes.id;
+  input.accordion__item-input(id=id, type=attributes.type, name=attributes.name)
+  .accordion__item
+    label.accordion__item-head(for=id)
+      != content ? (typeof content === 'string' ? content : content.title) : ''
+    .accordion__item-collapse
+      .accordion__item-body
+        if content
+          if content.hasOwnProperty("body")
+            != content.body
+
+          +pug-if(content, "accordion", false)
+            +accordion(content.accordion.content, content.accordion.params)&attributes(content.accordion.attributes)
+
+          if content.hasOwnProperty("mixin")
+            case typeof content.mixin
+              when "string"
+                -content.mixin = [{name: content.mixin}]
+                break
+              when "object"
+                if !Array.isArray(content.mixin)
+                  -content.mixin = [content.mixin]
+                break
+
+            +pug-list(content.mixin, "pug-mixin")
+        block

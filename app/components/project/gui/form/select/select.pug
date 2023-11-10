@@ -1,0 +1,52 @@
+mixin select(content, params)
+  -content = _.assign({text: "ДД", id:unique(), options: []}, content);
+  -var attr = {name:`_${attributes.name}`};
+  -
+    var inputAttr = splitProperties(attributes,
+      [
+        'placeholder',
+        'maxlength',
+        'data-validations',
+        'data-inputmask',
+        'data-inputmask-type',
+        'data-inputmask-params',
+        'name',
+        'type'
+      ]
+    );
+
+  .select&attributes(attributes)
+    input(type="checkbox" id=content.id).select__toggle
+    +form-label(content)
+    .select__view
+      input(autocomplete="off" placeholder=content.text).select__value&attributes(inputAttr)
+      label(for=content.id).select__label #{inputAttr.placeholder}
+
+      .select__wrapper
+        .select__wrapper-container
+          +custom-scroll.select__options-list
+            -var options = content.options
+            -
+              if (options.hasOwnProperty('from') && options.hasOwnProperty('to')) {
+                var _list = [];
+                var d = options.from < options.to ? 1 : -1;
+                for (var i = options.from; i != options.to + d; i += d) {
+                  _list.push({label: i});
+                }
+                options = _list;
+              }
+
+            //if attr.name
+            //  -attr.name = attr.name + '_c';
+            +pug-list(options, 'select__option', attr)
+    if (!(params && params.error === false))
+      +form-error
+
+mixin select__option(content, params)
+  if typeof content === 'string'
+    -content = {label: content, value: false}
+  - delete params['@index'];
+
+  label.select__option&attributes(attributes)
+    input(type="radio" value!=content.value).select__option-select&attributes(params)
+    .select__option-text !{content.label}

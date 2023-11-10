@@ -1,0 +1,16 @@
+.bitrix-panel {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("bitrix-panel", $mod){
+      @content;
+    }
+  }
+
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  ._admin & {
+    position: static;
+  }
+}

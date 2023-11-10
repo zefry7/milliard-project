@@ -1,0 +1,18 @@
+mixin social-block(content, params)
+  .social-block&attributes(attributes)
+    //- .social-block__title!=content.title
+    .social-block__buttons
+      +pug-list(content.list, "social-block__item", params)
+
+mixin social-block__item(content, params)
+  if typeof content === 'string'
+    -content = {soc: content};
+  -params = _.assign({mixin: 'social-block__item-a', soc: content.soc}, params);
+  +pug-mixin(params.mixin, content)(href=content.href, target="_blank" class=`social-block__item_${content.soc}`).social-block__item&attributes(attributes)
+    .social-block__item-shad
+    .social-block__item-view
+      != read(`app/components/project/gui/social-block/svg/${content.soc}.svg`)
+
+mixin social-block__item-a
+  a&attributes(attributes)
+    block

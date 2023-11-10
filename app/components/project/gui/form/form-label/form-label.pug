@@ -1,0 +1,4 @@
+mixin form-label(content, params)
+  if (content && content.title || block)
+    .form-label&attributes(attributes)!= content && content.title
+      block

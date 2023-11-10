@@ -1,0 +1,3 @@
+mixin <%-componentName%>(content, params)
+  .<%-componentName%>&attributes(attributes)
+    block

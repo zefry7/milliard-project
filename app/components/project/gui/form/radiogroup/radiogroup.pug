@@ -1,0 +1,10 @@
+mixin radiogroup(content, params)
+  -var attr = splitProperties(attributes, ['name', 'type', 'data-validations']);
+
+  .radiogroup&attributes(attributes)
+    +form-label(content)
+    .radiogroup__items
+      +pug-list(content.items, 'checkbox', {error:false})(type="radio")&attributes(attr).radiogroup__item
+      block
+    +form-error
+

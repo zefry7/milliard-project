@@ -1,0 +1,43 @@
+@mixin animation($animation){
+  @if content {
+    @keyframes #{nth($animation, 1)} {
+      @content;
+    }
+  }
+  @if & {
+    @if length($animation) == 1 {
+      animation-name: $animation;
+    } @elseif length($animation) > 1 {
+      animation: $animation;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes fade-in-top {
+  0% {
+    visibility: visible;
+    opacity: 0;
+    transform: translate(0, -10vh);
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+//%SHAKE {
+//  @include shake-animation(SCALE-SHAKE, .025, 1, 1.0s);
+//}

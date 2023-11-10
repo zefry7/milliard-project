@@ -1,0 +1,8 @@
+.api-default {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("api-default", $mod){
+      @content;
+    }
+  }
+}

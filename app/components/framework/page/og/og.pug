@@ -1,0 +1,39 @@
+-
+  function getOgMetaContent(_content, _keys) {
+    _keys = _keys || ['default'];
+    if (typeof _content === 'object') {
+      _content = _keys.reduce((value, key)=>typeof value !== 'undefined' ? value : _content[key], undefined);
+    } else if (_keys.indexOf('default') < 0) {
+      _content = undefined;
+    }
+    return _content;
+  }
+
+mixin og-meta(name, _content, _keys)
+  -_content = getOgMetaContent(_content, _keys)
+  if typeof _content !== 'undefined'
+    -let prop = (name, value)=>{return {[name]: value};};
+    -let propName = /^(og|fb):/.test(name) ? 'property' : 'name';
+
+    if typeof _content === 'object'
+      -var additional = _content; _content = _content.val; delete additional.val;
+
+    meta(content!=_content, property!=name)
+    meta(content!=_content, name!=name)
+    if additional
+      each key in Object.keys(additional)
+        meta(content!=additional[key])&attributes(prop(propName, `${name}:${key}`))
+
++og-meta("og:type", "website")
++og-meta("og:url", og.canonical_url)
+if og.fb_app_id
+  +og-meta("fb:app_id", og.fb_app_id)
++og-meta("og:title", og.title)
++og-meta("og:description", og.description)
+//-+og-meta("og:url", "<?= base_url('') ?>")
+
+//-https://blog.bufferapp.com/ideal-image-sizes-social-media-posts#facebook
++og-meta("og:image", og.image, ['default', 'fb'])
+
+include vk
+include twitter

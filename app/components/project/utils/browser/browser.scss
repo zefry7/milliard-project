@@ -1,0 +1,11 @@
+.browser {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("browser", $mod){
+      @content;
+    }
+    /*.browser_#{$mod} & {
+      @content;
+    }*/
+  }
+}

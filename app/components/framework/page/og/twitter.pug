@@ -1,0 +1,35 @@
+//-
+  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary
+
+  Маленькая картинка
+  Images for this Card support an aspect ratio of 1:1 with minimum dimensions of 144x144 or maximum of 4096x4096 pixels.
+  Images must be less than 5MB in size.
+
+  Большая картинка
+  Images for this Card support an aspect ratio of 2:1 with minimum dimensions of 300x157 or maximum of 4096x4096 pixels.
+  Images must be less than 5MB in size.
+
+//-
+  mixin og_twitter()
+    -
+      function _get(param){
+        return typeof param === 'string'
+          ? param
+          : param.hasOwnProperty('tw')
+            ? param.tw
+            : false
+      }
+
+    if og
+      meta(name="twitter:card" content="summary_large_image" )
+      //-meta(name="twitter:site" content="@flickr" )
+      meta(name="twitter:title" content!=_get(og.title))
+      meta(name="twitter:description" content!=_get(og.description))
+      meta(name="twitter:image" content!=_get(og.image))
+
+  +og_twitter()
+
++og-meta("twitter:card", "summary_large_image" )
++og-meta("twitter:title", og.title, ['tw'])
++og-meta("twitter:description", og.description, ['tw'])
++og-meta("twitter:image", og.image, ['tw'])

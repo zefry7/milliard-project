@@ -1,0 +1,195 @@
+%ABSOLUTE-CENTER {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.slider {
+  // Константы
+  @mixin mod($mod) {
+    .slider_#{$mod} & {
+      @content;
+    }
+  }
+  position: relative;
+  width: adaptive-desktop(244);
+  margin: auto;
+  user-select: none;
+  @include PHONE{
+    width: calc(100% - #{adaptive-phone(48)});
+  }
+
+  &__controls {
+    @extend .clearfix;
+    position: relative;
+    font-size: adaptive-desktop(35);
+    height: 1em;
+    padding:0 0.5em;
+    @include PHONE(){
+      font-size: adaptive-phone(48);
+      padding: 0;
+    }
+    /*height: adaptive-desktop(40);
+    @include PHONE() {
+      height: adaptive-phone(50);
+    }*/
+  }
+
+  &__line {
+    @extend %ABSOLUTE-CENTER;
+    //width: adaptive-desktop(230);
+    height: 2px;
+    background-color: $C-SLIDER;
+
+    &_all {
+      left: adaptive-phone(48) * -0.5;
+      right: adaptive-phone(48) * -0.5;
+      @include NOT-PHONE(){
+        left: 0.25em;
+        right: 0.25em;
+      }
+    }
+    &_current {
+      background-color: $C-WHITE;
+    }
+  }
+
+  &__bar {
+    @extend %ABSOLUTE-CENTER;
+    //left: 30%;
+    //right: 30%;
+  }
+
+  &__control{
+    //position: relative;
+    //display: inline-block;
+    //vertical-align: middle;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    &_helper {
+
+    }
+    &_left {
+      left: 0;
+    }
+    &_right {
+      right: 0;
+    }
+  }
+
+  &__control-icon{
+    //position: relative;
+    display: block;
+    vertical-align: middle;
+    //$w: adaptive-desktop(36);
+    width: 1em;
+    height: 1em;
+    border: 1px solid $C-WHITE;
+    border-radius: 50%;
+    background: $C-PANEL;
+    box-sizing: border-box;
+    //@include NOT-PHONE() {
+    transform: translateX(-50%);
+    //}
+    .slider__control_helper &{
+      opacity: 0;
+      border: none;
+      border-radius: 0;
+      width: 0.5em;
+      transform: translateX(-100%);
+      &::after {
+        display: none;
+      }
+    }
+
+    &::after {
+      $wa: adaptive-desktop(10);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      content: '';
+      display: block;
+      clear: both;
+      width: $wa;
+      height: $wa;
+      background: $C-WHITE;
+      border-radius: 50%;
+      @include PHONE {
+        width: adaptive-phone(10);
+        height: adaptive-phone(10);
+      }
+    }
+  }
+
+  &__control-number{
+    //display: block;
+    //width: adaptive-desktop(120);
+    text-align: center;
+    user-select: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include NOT-PHONE{
+      //position: absolute;
+      //left: -100%;
+      //right: -100%;
+      margin: adaptive-desktop(10) auto 0;
+    }
+    @include PHONE{
+      //width :auto;
+      margin-top: adaptive-phone(9);
+    }
+  }
+
+  &__control-number-block {
+    @extend .ASSORT_PANEL;
+
+    &_inactive{
+      color:$C-SLIDER-NUM;
+    }
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  &__line-text{
+    display: inline-block;
+    //width: 100%;
+    border: none;
+    background: none;
+
+    color: inherit;
+    font-family: inherit;
+    vertical-align: middle;
+    outline: none;
+    text-decoration: none;
+    text-align: inherit;
+    @include mod(select) {
+      //width: 1em;
+      white-space: nowrap;
+    }
+
+    /*&::before {
+      content: attr(value);
+    }*/
+  }
+  &__line-signature{
+    display: inline-block;
+    vertical-align: middle;
+    //font-family: sans-serif;
+    //float: right;
+  }
+
+}
+

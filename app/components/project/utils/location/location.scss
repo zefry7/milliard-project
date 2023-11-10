@@ -1,0 +1,8 @@
+.location {
+  // Константы
+  @mixin mod($mod) {
+    .location_#{$mod} & {
+      @content;
+    }
+  }
+}

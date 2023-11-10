@@ -1,0 +1,8 @@
+mixin custom-scroll(content, params)
+  #{content || 'div'}.custom-scroll
+    .custom-scroll__content&attributes(attributes)
+      //-.custom-scroll__scrollbar
+        .custom-scroll__track
+        .custom-scroll__thumb
+      block
+

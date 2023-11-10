@@ -1,0 +1,75 @@
+.input {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("input", $mod) {
+      @content;
+    }
+  }
+
+  $input-size: 24px;
+  $input-padding: 0 0.25em;
+  $input-line-height: 1.5;
+
+  $border-width: 1px;
+
+
+  @function getTransform($border-width, $input-size, $input-padding, $input-line-height, $label-size, $label-margin ){
+    @return translate(
+        get-size(get-trbl($input-padding, l), $input-size) + $border-width,
+        get-size(get-trbl($input-padding, t), $input-size)
+        + get-size(($input-line-height - 1) * 0.5, $input-size)
+        + $border-width
+        + get-trbl($label-margin, b)
+        + $label-size
+      )
+      scale($input-size / $label-size);
+  }
+  @function get-size($val, $font-size) {
+    //TODO версия для em, надо дописать версию для px
+    @return strip-unit($val) * $font-size;
+  }
+
+
+  &__label {
+    display: block;
+  }
+
+
+  &__input {
+    display: block;
+    border: solid $border-width #000000;
+    font-size: $input-size;
+    width: 100%;
+    box-sizing: border-box;
+    padding: $input-padding;
+    line-height: $input-line-height;
+  }
+
+
+
+  &__title{
+    transform-origin: 0 0;
+
+    @include mod(title-as-placeholder) {
+      opacity: 0.6;
+      display: inline-block;
+      transform: getTransform($border-width, $input-size, $input-padding, $input-line-height, $form-label__size, $form-label__margin);
+      transition: opacity, transform, transform-origin {
+        duration: 0.2s;
+        timing-function: ease-out;
+      };
+    }
+    @at-root %INPUT__TITLE_INPUT {
+      transform: scale(1) translateY(0em);
+      transform-origin: -50% 100%;
+      opacity: 1;
+    }
+
+    @include mod(focus) {
+      @extend %INPUT__TITLE_INPUT;
+    }
+    @include mod(dirty) {
+      @extend %INPUT__TITLE_INPUT;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+//- GUI
+@import "gui/gui";
+
+//- Элементы
+
+//- Блоки
+@import "custom-page/custom-page";
+// @import "custom-modal/custom-modal";
+@import "custom-header/custom-header";
+@import "custom-menu/custom-menu";
+
+//- Страницы
+@import "intro/intro";
+@import "chance/chance";
+@import "history/history"

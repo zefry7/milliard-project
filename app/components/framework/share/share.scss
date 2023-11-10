@@ -1,0 +1,11 @@
+.share {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("share", $mod){
+      @content;
+    }
+    /*.share_#{$mod} & {
+      @content;
+    }*/
+  }
+}

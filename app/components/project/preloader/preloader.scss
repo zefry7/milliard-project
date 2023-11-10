@@ -1,0 +1,41 @@
+html._preloader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  &_hide {
+    .page {
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+}
+
+.preloader {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("preloader", $mod){
+      @content;
+    }
+  }
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+  transition: opacity 0.3s ease-in 1.0s ;
+  z-index: $z-modal * 2;
+
+  @include mod(hide) {
+    opacity: 0;
+  }
+}

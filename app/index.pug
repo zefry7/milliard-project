@@ -1,0 +1,15 @@
+extends components/project/custom-page/custom-page
+
+prepend title
+  -let title = projectDescription;
+
+block content
+  +intro(copyright.main)
+
+  +chance(copyright.chance)
+  +history(copyright.history)
+
+
+
+
+

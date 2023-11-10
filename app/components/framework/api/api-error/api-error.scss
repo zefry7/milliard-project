@@ -1,0 +1,11 @@
+.api-error {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("api-error", $mod){
+      @content;
+    }
+    /*.api-error_#{$mod} & {
+      @content;
+    }*/
+  }
+}

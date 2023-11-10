@@ -1,0 +1,31 @@
+mixin intro(content, params)
+  section#intro.intro
+      .intro__content 
+          .intro__name 
+              img(src!=content.nameImg.img, alt!=content.nameImg.alt)
+          p.intro__label!= content.label
+          .intro__price 
+            img(src!=content.price.img, alt="")
+          +button(content.button)
+          .intro__tv-row
+            .intro__tv-img 
+              img(src!=content.tvImg.img, alt!=content.tvImg.alt)
+            .intro__tv-text!= content.tvText
+          .intro__people 
+            img(src!=content.people.img, alt="")
+          .intro__tree
+            img(src!=content.tree.img, alt="")
+          .intro__decor 
+            img(src!=content.decor.img, alt="")
+      .intro__row-users
+        p.intro__center-text На сайте сейчас
+          span 3
+          span 4
+          span 6
+          span 5
+          | человек
+        p.intro__right-text 
+          span 3
+          span 4
+          span 6
+          span 5

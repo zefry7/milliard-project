@@ -1,0 +1,7 @@
+mixin custom-menu__item(content, params)
+  +pug-if(content, 'inactive', true)
+    li.custom-menu__item: a(href=content.href data-navigo).custom-menu__item-link!= content.label
+
+mixin custom-menu(content, params)
+  ul.custom-menu
+    +pug-list(content, 'custom-menu__item')

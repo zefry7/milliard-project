@@ -1,0 +1,11 @@
+.bitrix-module {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("bitrix-module", $mod){
+      @content;
+    }
+    /*.bitrix-module_#{$mod} & {
+      @content;
+    }*/
+  }
+}

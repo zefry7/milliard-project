@@ -1,0 +1,26 @@
+mixin slider(content, params)
+  -attributes = _.assign({"data-min":content.min, "data-max": content.max, "data-step": content.step}, attributes);
+  .slider(class=content && content.type && `slider_${content.type}`)&attributes(attributes)
+    .slider__controls
+      .slider__line.slider__line_all
+      .slider__bar
+        +slider__control().slider__control_left
+        +slider__control().slider__control_right
+        +slider__control().slider__control_left.slider__control_helper
+        .slider__line.slider__line_current
+    .slider__control-number
+      +pug-list(content.items || [content.min, content.max], "slider__control-number-block", {suffix: content.suffix, editable: !content.items})
+      //-+pug-list(['Студия', 1, 2, 3], "slider__control-number-block", {suffix: content.suffix})
+
+
+mixin slider__control(content,params)
+  .slider__control&attributes(attributes)
+    .slider__control-icon
+
+
+mixin slider__control-number-block(item, params)
+  .slider__control-number-block
+    .slider__line-text(contenteditable=params && params.editable ? "" : false)!= item
+
+    if params.suffix
+      .slider__line-signature!= params.suffix

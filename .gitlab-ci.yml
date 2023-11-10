@@ -1,0 +1,75 @@
+##
+## Настройка задач сборки
+## https://docs.gitlab.com/ee/ci/yaml/
+##
+
+## минимальная сборка
+# image: node:alpine
+
+## в node:alpine нет программ для выливания по ftp, git и пр. Для этих задач лучше использовать node:latest
+image: node:14.16.0
+
+stages:
+  - init
+  - lint
+  - build
+  - test
+  - deploy
+
+
+cache: &global_cache
+  key:
+    files:
+      - package-lock.json
+      - yarn.lock
+  paths:
+    - node_modules/
+    # - app/deploy-log.txt
+
+init-cache:
+  tags:
+    - frontend
+  stage: init
+  rules:
+    - if: '$CI_COMMIT_MESSAGE =~ /\/install/'
+      when: always
+
+    - changes:
+        - package-lock.json
+        - yarn.lock
+      when: always
+
+    - when: never
+
+  cache:
+    <<: *global_cache
+    policy: push
+
+  script:
+    # - npm ci --skip-optional
+    - yarn install --frozen-lockfile --ignore-optional --non-interactive
+
+build:
+  tags:
+    - frontend
+  stage: build
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master"'
+      when: always
+    - if: '$CI_COMMIT_MESSAGE =~ /\/build/'
+      when: always
+    - if: '$CI_COMMIT_REF_NAME == "dev"'
+      when: manual
+  script:
+    - if [ ! -d "node_modules" ]; then npm ci --skip-optional; else echo "no updates"; fi
+    - node_modules/gulp/bin/gulp.js --gulpfile ./gulpfile.js deploy
+
+  cache:
+    <<: *global_cache
+    policy: pull
+
+  artifacts:
+    paths:
+      - dist/
+    name: "release-$CI_PROJECT_PATH_SLUG"
+    expire_in: 1 week

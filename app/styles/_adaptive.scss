@@ -1,0 +1,62 @@
+//$LANDSCAPE: "not (max-aspect-ratio: 13/9)";
+//$PORTRAIT: "screen and (max-aspect-ratio: 13/9)";
+
+$LANDSCAPE: "screen and (orientation: landscape)";
+$PORTRAIT: "screen and (orientation: portrait)";
+
+//$MOBILE_MEDIA: "screen and (max-width: #{$TABLET - 1}) and (orientation: portrait)";
+//$TABLET_MEDIA: "screen and (min-width: #{$TABLET}) and (max-width: #{$DESKTOP - 1}) and (orientation: portrait)";
+//$DESKTOP_MEDIA: "screen and (min-width: #{$DESKTOP}), screen and (orientation: landscape)";
+
+$MOBILE_MEDIA: "screen and (max-width: #{$TABLET-L - 1})";
+$TABLET_MEDIA: "screen and (min-width: #{$TABLET}) and (max-width: #{$TABLET-L - 1}) and (orientation: landscape)";
+$TABLET-L_MEDIA: "screen and (min-width: #{$TABLET-L}) and (max-width: #{$DESKTOP - 1})";
+$DESKTOP_MEDIA: "screen and (min-width: #{$DESKTOP})";
+
+@mixin MOBILE() {
+  @media #{$MOBILE_MEDIA} { @content; }
+}
+@mixin NOT-MOBILE() {
+  @media #{$TABLET_MEDIA}, #{$DESKTOP_MEDIA} {
+    @content;
+  }
+}
+
+
+@mixin TABLET() {
+  @media #{$TABLET_MEDIA} { @content; }
+}
+@mixin NOT-TABLET() {
+  @media #{$MOBILE_MEDIA}, #{$DESKTOP_MEDIA} { @content; }
+}
+
+@mixin TABLET-L() {
+  @media #{$TABLET-L_MEDIA} { @content; }
+}
+@mixin NOT-TABLET-L() {
+  @media #{$MOBILE_MEDIA}, #{$DESKTOP_MEDIA} { @content; }
+}
+
+
+@mixin DESKTOP() {
+  @media #{$DESKTOP_MEDIA} { @content; }
+}
+@mixin NOT-DESKTOP() {
+  @media #{$MOBILE_MEDIA}, #{$TABLET_MEDIA} { @content; }
+}
+
+@mixin MOBILE-AND-TABLET {
+  @media (max-width: #{$TABLET}) {
+    @content;
+  }
+}
+
+@mixin NOT-MOBILE-AND-TABLET {
+  @media (min-width: #{$TABLET-L}) {
+    @content;
+  }
+}
+@mixin HOVER (){
+  @media (hover) , (min-width:0\0) , (min--moz-device-pixel-ratio:0) { @content; }
+}
+

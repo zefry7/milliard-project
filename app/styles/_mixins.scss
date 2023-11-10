@@ -1,0 +1,123 @@
+@import "mixins/cross";
+@import "mixins/triangle";
+@import "mixins/sequence-keyframes";
+
+@mixin modifier($class, $mod) {
+  $modTmp: unquote("");
+  @if type-of($mod) == list {
+    @each $m in $mod {
+      $modTmp: $modTmp + unquote(".#{$class}_#{$m}");
+    }
+  } @else {
+    $modTmp: unquote(".#{$class}_#{$mod}");
+  }
+
+  //@debug nth(nth(&, 1), 1);
+  $first-class: split-pseudo-class(nth(nth(&, 1), 1));
+
+  @if (nth($first-class, 1) == unquote(".#{$class}")) {
+    @if length($first-class) > 1 {
+      @for $i from 2 through length($first-class) {
+        $modTmp: $modTmp + unquote("::") + nth($first-class, $i);
+      }
+    }
+  }
+  @if (nth($first-class, 1) != unquote(".#{$class}")) {
+    $modTmp: $modTmp + unquote(" &");
+  }
+
+  @at-root #{$modTmp} {
+    @content;
+  }
+}
+
+@mixin hover($selector: false){
+  @if $selector {
+
+    @include DESKTOP(){
+      #{$selector}:hover & {
+        @content
+      }
+    }
+    @include NOT-DESKTOP(){
+      #{$selector}:active & {
+        @content
+      }
+    }
+  }
+  @else {
+    @include DESKTOP(){
+      &:hover {
+        @content
+      }
+    }
+    @include NOT-DESKTOP(){
+      &:active {
+        @content
+      }
+    }
+  }
+}
+
+
+@mixin shake-animation($name, $center, $amplitude, $count, $duration, $delay: 0s){
+  $shakePart: $duration / ($delay + $duration);
+
+  $stepPart: percentage($shakePart / $count / 4);
+  @keyframes #{$name}{
+    0% { transform: scale($center); }
+    @for $i from 0 to $count {
+      #{($i * 4 + 1) * $stepPart} { transform: scale($center - $amplitude); }
+      #{($i * 4 + 3) * $stepPart} { transform: scale($center + $amplitude); }
+    }
+    100% { transform: scale($center); }
+  }
+
+  @if & {
+    animation: $name $delay + $duration linear 0s infinite both;
+  }
+}
+
+@mixin hide-scroll{
+  -ms-overflow-style: none;
+  cursor: default;
+  scrollbar-width: none;
+  -webkit-scrollbar-width: none;
+  overflow: auto;
+
+  &::-webkit-scrollbar-track{
+    background-color: rgba($WHITE, 0);
+  }
+
+  &::-webkit-scrollbar{
+    display: none;
+    height: 0;
+    width: 0;
+    background: rgba($WHITE, 0);
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background-color: rgba($WHITE, 0);
+  }
+}
+
+@mixin option($n, $v, $vm:$v){
+  @include DESKTOP {
+    #{$n}: vh($v)
+  }
+  @include TABLET-L {
+    #{$n}: vw($v)
+  }
+  @include TABLET {
+    #{$n}: vwt($vm)
+  }
+  @include MOBILE {
+    #{$n}: vwm($vm)
+  }
+}
+
+@mixin wrapper($w: $WRAPPER-D, $wm: $WRAPPER-D) {
+  position: relative;
+  @include option(max-width, $w, $wm);
+  margin: 0 auto;
+}

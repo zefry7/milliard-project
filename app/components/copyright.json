@@ -1,0 +1,154 @@
+{
+  "og": {
+    "title": "<?= $share->title ?>",
+    "description": "<?= $share->description ?>",
+    "canonical_url": "<?= $share->canonical_url ?>",
+    "fb_app_id": "",
+    "image": {
+      "default": {
+        "val": "<?= $share->image ?>",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "#image": {
+      "default": {
+        "val": "<?= $share->image['fb'] ?>",
+        "width": 1200,
+        "height": 630
+      },
+      "vk": "<?= $share->image['vk'] ?>",
+      "tw": "<?= $share->image['tw'] ?>"
+    }
+  },
+  "header": {
+    "logo": {
+      "img": "../images/main/display/logo.webp",
+      "alt": "Логотип"
+    },
+    "links": [
+      {
+        "label": "о лотерее",
+        "href": "#"
+      },
+      {
+        "label": "акции",
+        "href": "#"
+      },
+      {
+        "label": "Как участвовать",
+        "href": "#"
+      },        
+      {
+        "label": "Победители",
+        "href": "#"
+      },        
+      {
+        "label": "безопасность",
+        "href": "#"
+      },
+      {
+        "label": "приложение",
+        "href": "#"
+      }
+    ]
+  },
+  "main": {
+    "nameImg": {
+      "img": "../images/main/display/name.webp",
+      "alt": "Название"
+    },
+    "label": "разыгрывается более",
+    "price": {
+      "img": "../images/main/display/price.png"
+    },
+    "button": {
+      "text": "Скорее за билетами"
+    },
+    "tvImg": {
+      "img": "../images/main/display/tv.svg",
+      "alt": "Логотип телеканала"
+    },
+    "tvText": "Смотрите прямой эфир 1 января в 15:30 мск на НТВ и на нашем YouTube-канале",
+    "people": {
+      "img": "../images/main/display/people.webp"
+    },
+    "tree": {
+      "img": "../images/main/display/tree.png"
+    },
+    "decor": {
+      "img": "../images/main/display/decor.png"
+    }
+  },
+  "chance": {
+    "blocks": [
+      {
+        "title": "получите больше шансов на победу",
+        "desc": "Начинаем «Новогодний марафон»! В акции 11 недель, как и часовых поясов в России. Покупайте карточки и участвуйте в розыгрыше призов на OZON. А в финале вас ждёт главный приз — 1 000 000 ₽ ", 
+        "button": {
+          "text": "Участвовать"
+        },
+        "img": "../images/chance/display/marathon.webp"
+      },
+      {
+        "title": "Шанс на авто",
+        "desc": "Покупайте билеты на новогодний тираж «Русского лото» и получите шанс выиграть миллиард или Škoda Oktavia в дополнительном розыгрыше!", 
+        "button": {
+          "text": "Купить билеты"
+        },
+        "img": "../images/chance/display/car.webp"
+      },    {
+        "title": "Подарок от Premier",
+        "desc": "Все участники новогоднего тиража «Русского лото» получат подписку на месяц бесплатного просмотра кино и сериалов от сервиса PREMIER. ", 
+        "button": {
+          "text": "За билетами"
+        },
+        "img": "../images/chance/display/premier.svg"
+      }
+    ],
+    "light": "../images/chance/display/light.svg"
+  },
+  "history": {
+    "title": {
+      "part1": "Войдите в историю",
+      "part2": "«Новогоднего миллиарда»"
+    },
+    "items": [
+      {
+        "text": "Новогодний розыгрыш «Русского лото» проводится уже в 5-й раз",
+        "img": "../images/history/display/item-1.svg"
+      },
+      {
+        "text": "В новогодних тиражах разыгрываются самые крупные денежные призы в году",
+        "img": "../images/history/display/item-2.svg"
+      },      {
+        "text": "Билеты новогоднего тиража «Русского лото» и праздничные наборы билетов – отличный новогодний подарок!",
+        "img": "../images/history/display/item-3.svg"
+      },      {
+        "text": "В прошлом году благодаря «Новогоднему миллиарду» за один день в стране появился 581 лотерейный миллионер",
+        "img": "../images/history/display/item-4.svg"
+      }
+    ],
+    "button": {
+      "text": "Участвовать" 
+    },
+    "titleS": "Статистика новогодних тиражей «Русского лото»",
+    "textS": [
+      {
+        "part1": "808 миллионеров",
+        "part2": "появилось"
+      },
+      {
+        "part1": "Более 10 000 000 00 ₽ ",
+        "part2": "общая сумма выигрышей"
+      },
+      {
+        "part1": "1 000 000 000 ₽",
+        "part2": "крупнейший выигрыш"
+      }
+    ],
+    "people": {
+      "img": "../images/history/display/people.png"
+    }
+  }
+}

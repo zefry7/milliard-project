@@ -1,0 +1,8 @@
+.analytics {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("analytics", $mod){
+      @content;
+    }
+  }
+}

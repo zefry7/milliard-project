@@ -1,0 +1,70 @@
+.checkbox {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("checkbox", $mod) {
+      @content;
+    }
+  }
+  @mixin checked(){
+    .checkbox__input:checked ~ & {
+      @content;
+    }
+  }
+  @mixin radio(){
+    .checkbox__input[type='radio'] ~ & {
+      @content;
+    }
+  }
+
+  position: relative;
+  display: block;
+
+  &__input{
+    display: none;
+  }
+
+
+  @at-root %CHECKBOX__PART {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__check {
+    width: 100%;
+    height: 100%;
+    background: #888888;
+    transform: scale(0);
+    transition: transform 0.1s ease-out;
+
+    @include radio(){
+      border-radius: 50%;
+    }
+
+    @include checked(){
+      transform: scale(1);
+    }
+  }
+
+  &__box {
+    @extend %CHECKBOX__PART;
+    width: 1em;
+    height: 1em;
+    padding: 2px;
+    box-sizing: border-box;
+    border:solid 1px #000000;
+
+    @include radio(){
+      border-radius: 50%;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      @extend .checkbox__check;
+    }
+  }
+  &__label {
+    @extend %CHECKBOX__PART;
+    cursor: pointer;
+  }
+}

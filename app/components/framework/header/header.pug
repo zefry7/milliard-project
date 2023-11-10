@@ -1,0 +1,21 @@
+block header
+  -header = _.assign({burger: true, logo: true, menu: {wrapper:{}, content: {}}}, header);
+  .header&attributes(header.attr)
+    if header.burger
+      label.header__burger(for="menu-burger")&attributes(header.burger.attr)
+        block burger
+          p
+          p
+          p
+
+    if header.logo
+      a(href="#/")&attributes(header.logo.attr)
+        block logo
+
+    if header.menu
+      .header__wrapper&attributes(header.menu.wrapper.attr)
+        .header__content&attributes(header.menu.content.attr)
+          block menu
+
+    block right
+

@@ -1,0 +1,25 @@
+mixin chance(content, params)
+  section#chance.chance
+    .chance__content
+      .chance__block-top 
+        h2.chance__title!= content.blocks[0].title
+        p.chance__description!= content.blocks[0].desc
+        +button(content.blocks[0].button)
+        .chance__img 
+          img(src!=content.blocks[0].img, alt="")
+      .chance__block-center 
+        h2.chance__title!= content.blocks[1].title
+        p.chance__description!= content.blocks[1].desc
+        +button(content.blocks[1].button)
+        .chance__img 
+          img(src!=content.blocks[1].img, alt="")
+      .chance__block-bottom
+        h2.chance__title!= content.blocks[2].title
+        p.chance__description!= content.blocks[2].desc
+        +button(content.blocks[2].button)
+        .chance__img 
+          img(src!=content.blocks[2].img, alt="")
+    .chance__decor-top 
+      img(src!=content.light, alt="")
+    .chance__decor-bottom
+      img(src!=content.light, alt="")

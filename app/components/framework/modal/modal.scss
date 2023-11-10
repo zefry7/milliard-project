@@ -1,0 +1,76 @@
+@import "../../../../node_modules/tingle.js/dist/tingle.min.css";
+
+@mixin modal_fullscreen(){
+  .tingle-modal_fullscreen & {
+    @content;
+  }
+}
+
+.tingle {
+  &-modal {
+
+    display: block;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .2s;
+    visibility: visible;
+    pointer-events: none;
+    top: 0 !important;
+    z-index: $z-modal;
+
+    &--overflow {
+      padding-top: 0;
+      overflow-y: auto;
+    }
+    &--visible {
+      pointer-events: all;
+      opacity: 1;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      @at-root .tingle-modal_fullscreen#{&} {
+        display: none;
+      }
+    }
+
+    &-box {
+      display: inline-block;
+      vertical-align: middle;
+      background: none;
+      width: auto;
+
+      //TODO Анимация появления модальных окон
+      transition: transform 0.6s ease-out;//cubic-bezier(0.18, 0.91, 0.32, 1.27);
+      transform: translate(0, -100%);
+
+      @include modal_fullscreen(){
+        width: 100%;
+        height: 100%;
+      }
+      &__content {
+        padding: 0;
+        @include modal_fullscreen(){
+          width: 100%;
+          height: 100%;
+        }
+        @media (max-width:540px) {
+          overflow: auto;
+        }
+      }
+    }
+  }
+}
+
+.modal{
+  position: relative;
+
+  display: block;
+  background: #ffffff;
+  margin: auto;
+  box-sizing: border-box;
+}

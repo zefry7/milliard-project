@@ -1,0 +1,8 @@
+.picture {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("picture", $mod){
+      @content;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "form-label/form-label";
+@import "form-error/form-error";
+@import "checkbox/checkbox";
+@import "radiogroup/radiogroup";
+@import "input/input";
+@import "select/select";
+@import "select-date/select-date";
+
+.form {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("form", $mod) {
+      @content;
+    }
+  }
+}
+

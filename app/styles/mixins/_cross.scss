@@ -1,0 +1,69 @@
+%CROSS {
+  position: relative;
+  @at-root %CROSS__PSEUDO {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: "";
+    display: block;
+    margin: auto;
+    width: 100%;
+    transform-origin: 50% 50%;
+  }
+
+  &::before {
+    @extend %CROSS__PSEUDO;
+  }
+  &::after {
+    @extend %CROSS__PSEUDO;
+  }
+}
+
+%PLUS {
+  @extend %CROSS;
+  &::before {
+  }
+  &::after {
+    transform: rotate(90deg);
+  }
+}
+%CLOSE {
+  @extend %CROSS;
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+@mixin cross_color($color) {
+  &::before,
+  &::after {
+    background: $color;
+  }
+}
+@mixin cross($size, $thin, $color, $isPlus: false, $isRound: false) {
+  @if $isPlus {
+    @extend %PLUS;
+  } @else {
+    @extend %CLOSE;
+  }
+  width: $size;
+  height: $size;
+
+  &::before,
+  &::after {
+    height: $thin;
+    background: $color;
+    @if $isRound {
+      border-radius: $thin;
+    }
+  }
+}
+
+

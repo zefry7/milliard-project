@@ -1,0 +1,8 @@
+.<%-componentName%> {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("<%-componentName%>", $mod){
+      @content;
+    }
+  }
+}

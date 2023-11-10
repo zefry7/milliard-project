@@ -1,0 +1,11 @@
+.data {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("data", $mod){
+      @content;
+    }
+    /*.data_#{$mod} & {
+      @content;
+    }*/
+  }
+}

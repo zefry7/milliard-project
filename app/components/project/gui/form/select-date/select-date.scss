@@ -1,0 +1,8 @@
+.select-date {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("select-date", $mod){
+      @content;
+    }
+  }
+}

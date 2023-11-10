@@ -1,0 +1,137 @@
+block constants
+
+block copyright
+  if copyright
+    -copyright = read(copyright, {extend: true});
+
+block functions
+  -
+    function mod(block, mod) {
+      var mods = init(mod);
+      return mods ? [block, mods].join(' ') : block;
+
+      function init(mod){
+        return Array.isArray(mod) ? mod.map(init).join(' ') : (mod ? `${block}_${mod}` : '')
+      }
+    }
+
+block mixins
+  mixin stylesheet(href, async)
+    if async
+      link(rel="preload" href=template_url(href) as="style" onload="this.onload=null;this.rel='stylesheet'")
+      noscript
+        link(rel="stylesheet" href=template_url(href))
+    else
+      link(rel="stylesheet" href=template_url(href))
+  mixin script(src, async)
+    script(src=template_url(src) defer=!async async=!!async)&attributes(attributes)
+
+
+if env.isBitrix && !isBitrixHeader
+  block title
+  |<?php
+  |  require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+  |  $APPLICATION->SetTitle(!{JSON.stringify(title)});
+  |
+  block bitrix_constants
+    if MODIFIERS
+      | $APPLICATION->SetPageProperty('_modifiers', !{JSON.stringify(mod('', MODIFIERS))});
+      |
+    if PAGE_PROPS
+      each propVal, propName in PAGE_PROPS
+        |$APPLICATION->SetPageProperty(!{JSON.stringify(propName)}, !{JSON.stringify(propVal)});
+        |
+  |?>
+  |
+  block content
+  |
+  |<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>
+  |
+
+else
+  block before
+  doctype html
+  html(lang='ru')&attributes(HTML)
+    head
+      block head_before
+      block title
+        title!= title
+
+      block og
+        if copyright && copyright.og || og
+          -var og = _.assign({}, copyright.og, og);
+          include og/og
+
+      block meta
+        meta(charset="utf-8")
+        if !env.isBitrix
+          meta(name="description" content=META_DESCRIPTION)
+        block viewport-meta
+          meta(name="viewport" content=META_VIEWPORT || "width=device-width")
+        meta(name="mobile-web-app-capable" content="yes")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+
+        meta(name="apple-mobile-web-app-capable" content="yes")
+        meta(name="apple-mobile-web-app-status-bar-style" content="black")
+        if BROWSER_COLOR
+          meta(name="theme-color" content=BROWSER_COLOR)
+
+      block favicon
+        //- link(rel="apple-touch-icon" href="apple-touch-icon.png")
+        link(rel="icon" href="favicon.ico")
+
+      block analytics_head
+
+      block fonts
+        //- <link rel="preload" href="fonts/hinted-ALBOROTO.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+        +stylesheet("fonts/fonts.css", true)
+      block styles
+        +stylesheet("styles/main.css", true)
+
+      block head_after
+
+    body&attributes(BODY)
+      block analytics_body
+
+      block svg_symbols
+        +svg-symbols
+
+      block body_before
+      block page
+        .page
+          block content
+
+      block preloader
+
+      block modal
+
+      block additional_scripts
+        if typeof pkg.getVersion === "function"
+          script.
+            var VERSION = !{JSON.stringify(pkg.getVersion())};
+            function base_url(url) {
+              return (!{JSON.stringify(base_url(''))} + url).replace(/\/{2,}/g, "/");
+            }
+
+        script.
+          (function(w,d){
+            function preload(){
+              if (d.querySelector("link[rel=\"preload\"][as=\"style\"]")) {
+                try{return d.createElement( "link" ).relList.supports( "preload" );} catch (e) {}
+                return false;
+              }
+              return true;
+            }
+            function promise(){ return w.Promise; }
+            function t(fn,url,attr) {
+              if (!fn()) d.write('<script src="' + url + '" ' + attr + '></' + 'script>');
+            }
+            t(preload,"!{'scripts/libs/cssrelpreload.js'}", "async");
+            t(promise,"!{'scripts/libs/es6-promise.min.js'}", "defer");
+
+          }(window,document));
+
+      block scripts
+        +script(`scripts/${pkg.getProjectName()}.js`)
+
+      block body_after

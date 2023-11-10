@@ -1,0 +1,14 @@
+$form-label__size: 16px;
+$form-label__margin: 0 0 4px;
+
+.form-label {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("form-label", $mod){
+      @content;
+    }
+  }
+
+  margin: $form-label__margin;
+  font-size: $form-label__size;
+}

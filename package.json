@@ -1,0 +1,104 @@
+{
+  "name": "230822_cat",
+  "version": "0.0.0",
+  "project_id": "231009",
+  "description": "231009 230822_cat",
+  "author": "peppers",
+  "private": true,
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "serve": "gulp serve",
+    "test": "eslint app/components/**/*.js",
+    "eslint": "eslint app/components/**/*.js",
+    "eslint:fix": "eslint app/components/**/*.js --fix",
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/plugin-proposal-decorators": "latest",
+    "@babel/plugin-proposal-export-namespace-from": "latest",
+    "@babel/plugin-proposal-function-bind": "latest",
+    "@babel/plugin-proposal-function-sent": "latest",
+    "@babel/plugin-proposal-json-strings": "latest",
+    "@babel/plugin-proposal-numeric-separator": "latest",
+    "@babel/plugin-proposal-object-rest-spread": "latest",
+    "@babel/plugin-proposal-throw-expressions": "latest",
+    "@babel/plugin-syntax-dynamic-import": "latest",
+    "@babel/plugin-syntax-import-meta": "latest",
+    "@babel/polyfill": "latest",
+    "@babel/preset-env": "latest",
+    "babel-eslint": "10.1.0",
+    "babelify": "latest",
+    "browser-sync": "latest",
+    "browserify": "latest",
+    "del": "^6.1.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "8.7.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
+    "event-stream": "latest",
+    "glob": "7.1.0",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-csso": "latest",
+    "gulp-eslint": "6.0.0",
+    "gulp-filter": "latest",
+    "gulp-if": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-notify": "latest",
+    "gulp-plumber": "latest",
+    "gulp-pug": "latest",
+    "gulp-pxtorem": "latest",
+    "gulp-rename": "latest",
+    "gulp-replace": "latest",
+    "gulp-sass": "^5.1.0",
+    "gulp-sftp": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-svg-symbols": "latest",
+    "gulp-uglify": "latest",
+    "gulp-watch": "latest",
+    "html-entities": "^1.4.0",
+    "http-proxy-middleware": "latest",
+    "husky": "latest",
+    "lodash": "latest",
+    "prettier": "latest",
+    "run-sequence": "latest",
+    "vinyl-buffer": "latest",
+    "vinyl-ftp": "latest",
+    "vinyl-source-stream": "latest",
+    "watchify": "latest",
+    "yargs": "latest"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR"
+  ],
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "dependencies": {
+    "handlebars": "latest",
+    "jquery": "latest",
+    "navigo": "latest",
+    "node-sass": "^9.0.0",
+    "normalize.css": "latest",
+    "swiper": "^6.8.4",
+    "tingle.js": "^0.13.2"
+  },
+  "main": ".eslintrc.js",
+  "license": "ISC"
+}

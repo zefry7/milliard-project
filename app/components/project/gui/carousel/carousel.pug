@@ -1,0 +1,10 @@
+mixin carousel__item(content, params)
+  +pug-mixin(params.mixin, content, params).carousel__item.swiper-slide(class=params.item)
+
+mixin carousel(content, params)
+  if typeof params === 'string'
+    -params = {mixin: params}
+  .carousel.swiper-container(class=mod('carousel', params && params.mod))&attributes(attributes)
+    .swiper-wrapper
+      +pug-list(content, 'carousel__item', params)
+    block

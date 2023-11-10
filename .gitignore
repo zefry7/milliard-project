@@ -1,0 +1,11 @@
+.idea
+/release
+/dist
+.tmp
+node_modules
+docs
+backup/
+/scripts/deploy.config.json
+backstop_data/html_report/
+bitmaps_test/
+/package-lock.json

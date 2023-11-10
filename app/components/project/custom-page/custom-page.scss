@@ -1,0 +1,5 @@
+@import "../../framework/page/page";
+
+.custom-page {
+  @extend %DEFAULT;
+}

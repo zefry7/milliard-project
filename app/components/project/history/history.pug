@@ -1,0 +1,25 @@
+mixin history(content, params)
+  section#history.history
+    .history__content 
+      h2.history__title!=content.title.part1
+        br
+        | 
+        span!=content.title.part2
+      .history__row-desc 
+        each v in content.items
+          .history__column 
+            .history__column-img 
+              img(src!=v.img, alt="")
+            p.history__column-text!=v.text
+      .history__bottom-block 
+        .history__title-statistics!=content.titleS
+        .history__statistics
+          each v in content.textS
+            p.history__text!=v.part1
+              br
+              | 
+              span!=v.part2
+        +button(content.button)
+    .history__people 
+      img(src!=content.people.img, alt="")
+

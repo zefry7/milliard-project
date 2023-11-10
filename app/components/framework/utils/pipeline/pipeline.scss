@@ -1,0 +1,8 @@
+.pipeline {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("pipeline", $mod){
+      @content;
+    }
+  }
+}

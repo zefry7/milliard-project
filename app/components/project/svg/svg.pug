@@ -1,0 +1,11 @@
+mixin svg-symbols()
+  if !global.svg
+    -global.svg = true
+    include svg-symbols.svg
+
+mixin svg(content)
+  if typeof content === "string"
+    - content = {id: content}
+  svg().svg&attributes(attributes)
+    use(href!=`#svg_${content.id}` xlink:href!=`#svg_${content.id}`)
+    block

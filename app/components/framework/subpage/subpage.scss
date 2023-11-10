@@ -1,0 +1,12 @@
+.subpage {
+  visibility: hidden;
+  width: 100%;
+  animation: fade-in .3s ease-out 0.1s both;
+
+
+  &_visible {
+     display: block;
+    //display: flex;
+    //flex-direction: column;
+  }
+}

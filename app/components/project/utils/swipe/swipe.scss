@@ -1,0 +1,8 @@
+.swipe {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("swipe", $mod){
+      @content;
+    }
+  }
+}

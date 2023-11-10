@@ -1,0 +1,184 @@
+.intro {
+
+  .button {
+    margin-bottom: 26px;
+  }
+
+  &__content {
+    position: relative;
+    @include option(padding, 89 143 0 143);
+    height: 811px;
+    background: radial-gradient(57.52% 55.87% at 46.74% 24.78%, #FF1422 0%, #4D001C 99.91%);
+    display: flex;
+    flex-direction: column;
+  }
+  &__name {
+    margin-bottom: 42px;
+    align-self: center;
+    position: relative;
+    z-index: 2;
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      z-index: -1;
+      left: -76px;
+      top: 31px;
+      width: 845px;
+      height: 239.473px;
+      background: url(../../../images/main/display/wood.webp) center/ 100% no-repeat;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: -28px;
+      bottom: 48px;
+      z-index: -1;
+      display: inline-block;
+      width: 756px;
+      height: 53px;
+      border-radius: 756px;
+      background: #780000;
+      filter: blur(27px);
+    }
+  }
+  &__label {
+    color: var(--white, #FFF);
+    font-size: 44.144px;
+    font-weight: 700;
+    line-height: 147%;
+    letter-spacing: -0.228px;
+    text-transform: uppercase;
+  }
+  &__price {
+    margin-bottom: 33px;
+    position: relative;
+    z-index: 2;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 633px;
+      height: 46px;
+      position: absolute;
+      top: 14px;
+      left: -5px;
+      z-index: -1;
+      border-radius: 28.745px;
+      background: linear-gradient(270deg, #FF896F 9.32%, #FF2626 96.84%);
+      filter: blur(23.612043380737305px);
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 599px;
+      height: 67px;
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      background: url(../../../images/main/display/price.png) center/ 100% 100% no-repeat;
+      filter: blur(3.593137264251709px);
+    }
+  }
+  &__tv-row {
+    display: flex;
+  }
+  &__tv-img {
+    margin-right: 16px;
+  }
+  &__tv-text {
+    width: 210px;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 133%;
+    transform-origin: center;
+  }
+  &__row-users {
+    position: relative;
+    z-index: 5;
+    height: 59px;
+    background: #EA1D42;
+  }
+  &__people {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    z-index: 2;
+  }
+  &__tree {
+    position: absolute;
+    bottom: -42px;
+    right: 0;
+    z-index: 0;
+  }
+  &__decor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    mix-blend-mode: screen;
+    filter: blur(0.5px);
+  }
+  &__row-users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &__center-text {
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 127%;
+    span {
+      margin-right: 5px;
+      display: inline-block;
+      width: 22.977px;
+      height: 32.438px;
+      text-align: center;
+      line-height: 32px;
+      font-size: 21px;
+      font-weight: 500;
+      color: black;
+      background: linear-gradient(180deg, #FF9494 0%, #FFF 27.91%, #FFF 75%, #FF9494 100%);
+    }
+    span:first-child {
+      margin-left: 10px;
+    }
+    span:last-child {
+      margin-right: 10px;
+    }
+  }
+  &__right-text {
+    position: absolute;
+    right: 31px;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 18.123px;
+      position: absolute;
+      top: 50%;
+      left: -32px;
+      transform: translateY(-50%);
+      background: url(../../../images/main/display/heard.svg) center/ 100% no-repeat;
+    }
+    span {
+      margin-right: 5px;
+      display: inline-block;
+      width: 22.977px;
+      height: 32.438px;
+      text-align: center;
+      line-height: 32px;
+      font-size: 21px;
+      font-weight: 500;
+      color: black;
+      background: linear-gradient(180deg, #FF9494 0%, #FFF 27.91%, #FFF 75%, #FF9494 100%);
+    }
+    span:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+

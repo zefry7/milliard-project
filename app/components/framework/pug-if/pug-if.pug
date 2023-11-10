@@ -1,0 +1,48 @@
+-
+  function pug_if(content, propertyName, defaultVal, _if) {
+    var val = content.hasOwnProperty(propertyName) ? content[propertyName] : defaultVal;
+    if (val && val.hasOwnProperty('before') && val.hasOwnProperty('after')) {
+      return `${val.before}${_if}${val.after}`;
+    }
+    if (val) {
+      return _if;
+    }
+
+    return false;
+  }
+  function pug_not(content, propertyName, defaultVal, _if) {
+    var val = content.hasOwnProperty(propertyName) ? content[propertyName] : defaultVal;
+    if (val && val.hasOwnProperty('before') && val.hasOwnProperty('after')) {
+      return `${val.before}${_if}${val.after}`;
+    }
+    if (val) {
+      return _if;
+    }
+
+    return false;
+  }
+
+mixin pug-if(content, propertyName, defaultVal)
+  if content && content.hasOwnProperty(propertyName)
+    -var cond = content[propertyName];
+    if cond.hasOwnProperty('condition')
+      -cond = cond.condition
+
+    if cond.hasOwnProperty('type')
+      case cond.type
+        when 'copyright'
+          if cond.hasOwnProperty('key')
+            -cond = cond.key.split('.').reduce(function(val, key){ return val && val.hasOwnProperty(key) ? val[key] : undefined }, copyright)
+
+
+    if typeof cond === "object" && cond.hasOwnProperty("before") && cond.hasOwnProperty("after")
+      != cond.before
+      block
+      != cond.after
+    else
+      if typeof cond === 'undefined'
+        -cond = defaultVal
+      if cond
+        block
+  else if defaultVal
+    block

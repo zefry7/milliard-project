@@ -1,0 +1,11 @@
+.api-directus {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("api-directus", $mod){
+      @content;
+    }
+    /*.api-directus_#{$mod} & {
+      @content;
+    }*/
+  }
+}

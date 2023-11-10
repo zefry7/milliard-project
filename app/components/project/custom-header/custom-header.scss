@@ -1,0 +1,42 @@
+@import "../../framework/header/header";
+
+//@include header(X, 1);
+@include header(Y);
+
+.header {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @include option(padding, 35 0 0 31);
+
+  .custom-menu__item {
+    color: var(--white, #FFF);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 158%;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .custom-menu {
+    display: flex;
+    @include option(gap, 18);
+  }
+}
+
+
+.custom-header {
+  // Константы
+  // @mixin mod($mod) {
+  //   .custom-header_#{$mod} & {
+  //     @content;
+  //   }
+  // }
+
+  &__logo {
+    position: absolute;
+    @include option(left, 31);
+    @include option(top, 35);
+  }
+}

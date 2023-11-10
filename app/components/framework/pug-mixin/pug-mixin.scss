@@ -1,0 +1,11 @@
+.pug-mixin {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("pug-mixin", $mod){
+      @content;
+    }
+    /*.pug-mixin_#{$mod} & {
+      @content;
+    }*/
+  }
+}

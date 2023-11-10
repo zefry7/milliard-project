@@ -1,0 +1,21 @@
+mixin pug-list(list, mixin, params)
+  -
+    function _assign(dst, src){
+      return !Array.isArray(params) ? _.assign(dst, src) : src;
+    }
+
+  if list
+    if Array.isArray(list)
+      each item, index in list
+        +#{mixin}(item, _assign({"@index": index}, params))&attributes(_.assign({}, attributes))
+          block
+    else if list.php
+      <? foreach (#{list.list} as $key => #{list.value || '$item'}): ?>
+      +#{mixin}(list.item, _assign({"@index": "$key"}, params))&attributes(_.assign({}, attributes))
+        block
+      <? endforeach; ?>
+    else
+      | {{#each #{list.list}}}
+      +#{mixin}(list.item, _assign({"@index": "{{@index}}"}, params))&attributes(_.assign({}, attributes))
+        block
+      | {{/each}}

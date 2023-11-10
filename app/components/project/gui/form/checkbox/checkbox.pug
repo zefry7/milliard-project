@@ -1,0 +1,13 @@
+mixin checkbox(content, params)
+  -params = _.assign({error:true}, params)
+  -var attr = splitProperties(attributes, ['type', 'name', 'value', 'data-validations', 'checked']);
+  -content = _.assign({}, content);
+
+  .checkbox&attributes(attributes)
+    label.checkbox__label&attributes(attributes)
+      input(type="checkbox" value!=content.value).checkbox__input&attributes(attr)
+      .checkbox__box
+      .checkbox__label!= content.label
+        block
+    if params.error
+      +form-error

@@ -1,0 +1,22 @@
+mixin input(content, params)
+  -content = _.assign({tag: 'input', usePlaceholderAsTitle: true}, content)
+  -
+    var attr = splitProperties(attributes, ['data-autosubmit-length', 'data-validations',
+      'autofocus', 'cols', 'disabled', 'maxlength', 'readonly', 'required', 'rows',
+      'type', 'data-inputmask', 'placeholder', 'name'
+    ]);
+  -attr = _.assign({autocomplete:'off'}, attr);
+
+  //- Использовать placeholder, как заголовок
+  if content.usePlaceholderAsTitle
+    -content.title = attr.placeholder
+    -delete attr.placeholder
+    -attributes["class"] = (attributes["class"] || '') + ' input_title-as-placeholder';
+
+  .input()&attributes(attributes)
+    label.input__label
+      +form-label(content).input__title
+      #{content.tag}.input__input&attributes(attr)
+    +form-error
+
+    block

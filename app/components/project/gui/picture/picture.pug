@@ -1,0 +1,7 @@
+mixin picture(content, params)
+  picture 
+    if(content.source) 
+      each v in content.source
+        source(media!=v.media, srcset!=v.srcSet)
+    img(src!=content.img, alt=content.alt)
+

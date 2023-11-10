@@ -1,0 +1,52 @@
+extends ../../framework/page/page
+
+append constants
+  -
+    let PRELOADER = false;
+    let IS_BITRIX_COMPONENT = {component: 'page', template: entry.name}
+    let SCRIPTS = new Set;
+    let HTML = {class: [{"_preloader": PRELOADER !== false, "<? if ($APPLICATION->GetShowIncludeAreas()):?>_is-live-edit<? endif; ?>": env.isBitrix}] }
+    let BODY = {}
+    let META_DESCRIPTION = "DESCRIPTION"
+    let META_VIEWPORT = "width=device-width, viewport-fit=cover"
+    let BROWSER_COLOR = "#ffffff"
+    let PAGE_PROPS = {}
+    let TITLE = JSON.stringify(pkg.getProjectDescription())
+
+  if php && !env.isBitrix
+    <? include_once("php-utils.php") ?>
+
+//- append analytics_head
+  include ../analytics/ga.html
+  include ../analytics/ym.html
+
+prepend title
+  -TITLE = GLOBAL_TITLE || TITLE;
+
+append mixins
+  include ../../framework/framework
+  include ../project
+
+append svg_symbols
+  +svg-symbols
+
+//-prepend styles
+  if release
+    style!= inline_preloader
+  else
+    +stylesheet("styles/inline_preloader.css")
+
+
+block page
+  //- input(type="checkbox" id="menu-burger")
+  .page.custom-page
+    include ../custom-header/custom-header
+    block content
+
+//-append preloader
+  if PRELOADER !== false
+    +preloader()
+
+prepend scripts
+  each val in Array.from(SCRIPTS)
+    +script(val)

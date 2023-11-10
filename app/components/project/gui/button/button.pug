@@ -1,0 +1,7 @@
+mixin button(content, params)
+  -content = _.assign({}, content);
+  -params = _.assign({gray: false}, params);
+  -const tag = content.tag || ((content.attr && content.attr.href) || attributes.href ? "a" : "button");
+  #{tag}.button&attributes(content.attr)&attributes(attributes)
+    .button__text!=content.text
+      block

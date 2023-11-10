@@ -1,0 +1,33 @@
+mixin bitrix-module(content, params)
+  if content && env.isBitrix
+    <!-- bitrix-module-begin !{JSON.stringify(content)} -->
+    block
+    <!-- bitrix-module-end -->
+  else
+    block
+
+mixin bitrix-module-include()
+  | <?
+  | if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+  | /** @var CBitrixComponent $this */
+  | /** @var array $arParams */
+  | /** @var array $arResult */
+  | /** @var string $componentPath */
+  | /** @var string $componentName */
+  | /** @var string $componentTemplate */
+  | /** @global CDatabase $DB */
+  | /** @global CUser $USER */
+  | /** @global CMain $APPLICATION */
+  |
+  | /** @global CIntranetToolbar $INTRANET_TOOLBAR */
+  |
+  | require_once(__DIR__ . '/../functions.php');
+  |
+  | try {
+  |
+  block
+  |
+  |   $this->includeComponentTemplate();
+  | } catch( Exception $error ) {
+  |   //  _404();
+  | }

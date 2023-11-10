@@ -1,0 +1,8 @@
+.pug-list {
+  // Константы
+  @mixin mod($mod) {
+    .pug-list_#{$mod} & {
+      @content;
+    }
+  }
+}

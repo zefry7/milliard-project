@@ -1,0 +1,118 @@
+@mixin is-burger {
+  @include NOT-DESKTOP() {
+    @content;
+  }
+}
+
+@mixin menu-visible {
+  #menu-burger:checked ~ * & {
+    @content;
+  }
+}
+
+#menu-burger {
+  display: none;
+}
+
+@mixin header($open-direction: Y, $open-size: -1, $z-burger-menu: 1, $open-duration: .4s) {
+  $z: 1;
+  .header {
+    $IS_X: $open-direction == "X";
+    $IS_Y: $open-direction == "Y";
+
+    @content;
+    &__burger {
+      position: relative;
+      z-index:$z + 1;
+      display: none;
+      cursor: pointer;
+
+      @include is-burger(){
+        z-index: $z-burger-menu + 1;
+
+        display: block;
+
+        > * {
+          display: block;
+          height: 3px;
+          margin: 0 0 3px;
+          background: #000000;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &__wrapper {
+      @include is-burger(){
+        $direction: '';
+        @if $IS_X or $IS_Y {
+          @if $IS_Y {
+            @if $open-size < 0 {
+              top: 0;
+              bottom: 100%;
+              $direction: bottom;
+            } @else {
+              top: 100%;
+              bottom: 0;
+              $direction: top;
+            }
+            left: 0;
+            right: 0;
+          }
+          @if $IS_X {
+            @if $open-size < 0 {
+              left: 0;
+              right: 100%;
+              $direction: right;
+            } @else {
+              left: 100%;
+              right: 0;
+              $direction: left;
+            }
+            top: 0;
+            bottom: 0;
+          }
+
+          position: absolute;
+          z-index: $z;
+          overflow: hidden;
+          transition: $direction 0.01s ease-out $open-duration;
+          //background: rgba(#000, .5);
+
+          @include menu-visible(){
+            #{$direction}: 0;
+            transition-duration: 0s;
+            transition-delay: 0s;
+            overflow-y: auto;
+          }
+        }
+      }
+    }
+    &__content {
+      @include is-burger(){
+        @if $IS_X or $IS_Y {
+          position: absolute;
+          z-index: $z-burger-menu;
+          left: 0;
+          right: 0;
+          top: 0;
+          transition: transform $open-duration;
+        }
+
+        @if $IS_X {
+          transform: translateX( percentage($open-size) );
+        }
+        @else if $IS_Y{
+          transform: translateY( percentage($open-size) );
+        }
+
+        @include menu-visible(){
+          transform: translate(0, 0);
+        }
+      }
+
+    }
+  }
+}

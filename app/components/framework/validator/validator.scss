@@ -1,0 +1,8 @@
+.validator {
+  // Константы
+  @mixin mod($mod) {
+    @include modifier("validator", $mod){
+      @content;
+    }
+  }
+}
