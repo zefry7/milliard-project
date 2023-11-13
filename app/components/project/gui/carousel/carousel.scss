@@ -18,9 +18,8 @@
     @include option(bottom, 175, 31);
     right: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    @include option(gap, 30, 17);
+    @include option(gap, 30, 15);
 
     &-bullet {
         display: inline-block;
@@ -42,9 +41,7 @@
         width: 100%;
         &-bullet-active {
             opacity: 1;
-            @include option(height, 14);
-            @include option(width, 14);
-            @include option(min-width, 14);
+            transform: scale(1.5);
         } 
     }
   }

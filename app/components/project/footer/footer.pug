@@ -1,0 +1,22 @@
+mixin footer(content, params)
+  section#footer.footer
+    .footer__content
+      .footer__left 
+        .footer__logo
+          img(src!= content.logo, alt="")
+        each v in content.textLeft 
+          p.footer__text!= v 
+        .footer__line 
+        +social-block(content)
+      .footer__right
+        .footer__gr-row 
+          each v in content.gr 
+            .footer__gr 
+              img(src!= v, alt="")
+        p.footer__text-company!= content.textCompany
+        .footer__img-company 
+          img(src!= content.company, alt="")
+        p.footer__text-right!= content.textRight 
+        each v in content.textGray 
+          p.footer__text!= v
+        

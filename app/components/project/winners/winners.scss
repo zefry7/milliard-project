@@ -1,0 +1,205 @@
+.winners {
+
+  &__content {
+    padding: 96px 0 0 143px;
+  }
+  &__title {
+    margin-bottom: 23px;
+    color: #141414;
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 91%;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+  }
+  &__more-history {
+    margin-bottom: 64px;
+    width: 397px;
+    color: #141414;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 141%;
+    text-decoration-line: underline;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -52px;
+      display: inline-block;
+      width: 32px;
+      height: 16px;
+      background: url(../../../images/winners/display/arrow.svg) center/ 100% 100% no-repeat;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+  .carousel__item {
+
+  }
+  .swiper-container {
+    margin: 0 27px;
+    width: 630px;
+  }
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .swiper-slide {
+    width: 210px !important;
+
+    .winners__person {
+      margin-bottom: 7px;
+      height: 231px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 28px;
+        background: rgba(211, 211, 211, 0.44) center/ 100% 100% repeat;
+      }
+      img {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+      }
+    }
+    .winners__name {
+      margin-bottom: 11px;
+      color: #141414;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 116%;
+    }
+    .winners__present {
+      margin-bottom: 27px;
+      display: flex;
+      align-items: center;
+      color: #EA1D42;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 120%;
+      position: relative;
+      &::before {
+        content: "";
+        margin-right: 8px;
+        display: inline-block;
+        width: 24px;
+        height: 27px;
+        background: url(../../../images/winners/display/present.svg) center/ 100% 100% no-repeat;
+      }
+    }
+    .winners__read {
+      display: none;
+    }
+  }
+  .swiper-slide-active {
+    .winners__person {
+      margin-bottom: 17px;
+      height: 340px;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 28px;
+        background: rgba(1, 11, 71, 0.44);
+      }
+      img {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+      }
+    }
+    .winners__name {
+      margin-bottom: 17px;
+      color: #141414;
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 116%;
+    }
+    .winners__present {
+      margin-bottom: 27px;
+      display: flex;
+      align-items: center;
+      color: #EA1D42;
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 120%;
+      position: relative;
+      &::before {
+        content: "";
+        margin-right: 13px;
+        display: inline-block;
+        width: 38px;
+        height: 43.699px;
+        background: url(../../../images/winners/display/present.svg) center/ 100% 100% no-repeat;
+      }
+    }
+    .winners__read {
+      width: max-content;
+      color: #200000;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 120%; 
+      text-decoration-line: underline;
+      position: relative;
+      &::after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -52px;
+        display: inline-block;
+        width: 32px;
+        height: 16px;
+        background: url(../../../images/winners/display/arrow.svg) center/ 100% 100% no-repeat;
+      }
+    }
+  }
+
+
+
+  &__read {
+    width: max-content;
+    color: #200000;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%; 
+    text-decoration-line: underline;
+    position: relative;
+    &::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -52px;
+      display: inline-block;
+      width: 32px;
+      height: 16px;
+      background: url(../../../images/winners/display/arrow.svg) center/ 100% 100% no-repeat;
+    }
+  }
+  &__bt-left {
+    height: 41px;
+    width: 41px;
+    background: url(../../../images/winners/display/bt-arrow.svg) center/ 100% 100% no-repeat;
+  }
+  &__bt-right {
+    transform: rotateZ(180deg);
+    height: 41px;
+    width: 41px;
+    background: url(../../../images/winners/display/bt-arrow.svg) center/ 100% 100% no-repeat;
+  }
+  &__woman {
+    position: absolute;
+    right: 32px;
+    bottom: -62px;
+  }
+}

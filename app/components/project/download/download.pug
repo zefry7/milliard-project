@@ -1,0 +1,18 @@
+mixin download(content, params)
+  section#download.download
+    .download__content
+      h2.download__title!= content.title.part1
+        span!= content.title.part2
+      .download__items 
+        each v in content.items 
+          .download__item 
+            .download__item-img 
+              img(src!= v.img, alt="")
+            p.download__item-text!= v.text
+      p.download__subtitle!= content.subtitle 
+      .download__buttons 
+        each v in content.buttons 
+          .download__button
+            img(src!= v, alt="")
+    .download__hand 
+      img(src!=content.hand, alt="")

@@ -1,0 +1,18 @@
+mixin onlineBuy(content, params)
+  section#onlineBuy.onlineBuy
+    .onlineBuy__content 
+      h2.onlineBuy__title!= content.title
+      p.onlineBuy__video!= content.videoText
+      .onlineBuy__info 
+        each v, index in content.items
+          .onlineBuy__column 
+            .onlineBuy__column-row 
+              h3.onlineBuy__column-title!= v.title
+              .onlineBuy__column-img 
+                img(src!= v.img, alt="")
+            .onlineBuy__column-text!= v.text
+            if index == 1
+              .onlineBuy__column-bottom-img 
+                img(src!= v.bottomImg, alt="")
+      +button(content.button)
+

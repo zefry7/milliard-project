@@ -1,0 +1,20 @@
+mixin winners(content, params)
+  section#winners.winners
+    .winners__content
+      h2.winners__title!= content.title
+      p.winners__more-history!= content.moreHistory
+      .winners__info 
+        .winners__bt-left 
+        +carousel(content.items, "infoWinners")(data-carousel="carouselWinners")
+        .winners__bt-right
+      +button(content.button)
+    .winners__woman 
+      img(src!=content.woman, alt="")
+
+mixin infoWinners(content, params)
+  div&attributes(attributes)
+      .winners__person 
+        img(src!= content.img, alt="")
+      p.winners__name!= content.name
+      p.winners__present!= content.present
+      p.winners__read Читать историю

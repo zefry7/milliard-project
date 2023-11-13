@@ -21,6 +21,11 @@ const PRESETS = {
   free_scroll: {
     freeMode: true
   },
+  carouselWinners: {
+    slidesPerView: 3,
+    centeredSlides: true,
+    // spaceBetween: 40,
+  }
 };
 
 export class Carousel extends Plugin {

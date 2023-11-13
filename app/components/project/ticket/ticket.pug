@@ -1,0 +1,11 @@
+mixin ticket(content, params)
+  section#ticket.ticket
+    .ticket__content 
+      h2.ticket__title!= content.title
+      .ticket__row-tv 
+        .ticket__row-tv-img 
+          img(src!= content.tv.img, alt="")
+        p.ticket__row-tv-text!= content.tv.text.part1
+          span!= content.tv.text.part2
+      +button(content.button)
+        

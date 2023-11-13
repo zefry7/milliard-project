@@ -9,10 +9,9 @@
   // tg: #0088cc,
 // );
 .social-block {
-  // Константы
-  @mixin mod($mod) {
-    @include modifier("social-block", $mod){
-      @content;
-    }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
   }
 }

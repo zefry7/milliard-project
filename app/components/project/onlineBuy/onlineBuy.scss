@@ -1,0 +1,96 @@
+.onlineBuy {
+  width: 100%;
+  background: radial-gradient(82.54% 82.54% at 22.88% 31.39%, #0C196A 0%, #010832 100%);
+  .button {
+    align-self: center;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 99px 149px 77px 149px;
+  }
+  &__title {
+    margin-bottom: 12px;
+    width: 880px;
+    color: #FFF;
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 103%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  &__video {
+    margin-bottom: 105px;
+    width: max-content;
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 141%;
+    text-decoration: underline;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -52px;
+      display: inline-block;
+      width: 32px;
+      height: 16px;
+      background: url(../../../images/onlineBuy/display/arrow.svg) center/ 100% 100% no-repeat;
+    }
+  }
+  &__info {
+    margin-bottom: 79px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__column {
+    padding: 20px 20px 41px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 430px;
+    width: 275px;
+    border-radius: 7px;
+    background: #FFF;
+    transition: all 0.1s linear;
+    &:hover {
+      transition: all 0.3s linear;
+      transform: scale(1.05);
+      filter: drop-shadow(0px 0px 25px rgba(255, 255, 255, 0.85));
+      cursor: pointer;
+    }
+    &-row {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &-title {
+      color: #141414;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 120%; 
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    &-img {
+      height: 72px;
+      width: max-content;
+      img {
+        max-width: 100%;
+        height: 100%;
+      }
+    }
+    &-text {
+      color: #3B3B3B;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 137%;
+    }
+    &-bottom-img {
+      margin-top: auto;
+    }
+  }
+}

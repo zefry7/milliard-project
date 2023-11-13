@@ -1,0 +1,25 @@
+mixin join(content, params)
+  section#join.join
+    .join__content
+      h2.join__title!= content.title
+      p.join__subtitle!= content.subtitle 
+      p.join__description!= content.desc 
+      .join__info 
+        each v, index in content.items
+          .join__column 
+            .join__column-row 
+              p.join__column-number!= v.number
+              .join__column-img 
+                img(src!= v.img, alt="")
+            h3.join__column-title!= v.title
+            if index == 1
+              p.join__column-text!= v.text
+              ul.join__column-text-lines
+                each s in v.textLines 
+                  li!= s
+            else
+              p.join__column-text!= v.text
+      +button(content.button)
+    .join__man 
+      img(src!=content.man.img, alt="")
+

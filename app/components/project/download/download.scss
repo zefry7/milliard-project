@@ -1,0 +1,90 @@
+.download {
+  height: 1015px;
+  position: relative;
+  background: url(../../../images/download/display/bg.svg) center/ 100% 100% no-repeat;
+  &__content {
+    padding: 89px 0 0 143px;
+
+  }
+  &__title {
+    margin-bottom: 40px;
+    width: 966px;
+    color: #191B27;
+    font-size: 55px;
+    font-weight: 800;
+    line-height: 112%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    span {
+      color: #EA1D42;
+      font-size: 55px;
+      font-weight: 800;
+      line-height: 112%;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+  &__items {
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows: repeat(2, max-content);
+    gap: 30px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    &-img {
+
+    }
+    &-text {
+      width: 180px;
+      color: #141414;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 125%;
+      letter-spacing: 0.5px;
+    }
+  }
+  &__subtitle {
+    margin-bottom: 50px;
+    width: 608px;
+    color: #EA1D42;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 140%;
+    text-transform: uppercase;
+  }
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows: repeat(3, max-content);
+    gap: 12px;
+  }
+  &__hand {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    &::before {
+      content: "";
+      position: absolute;
+      right: 400px;
+      bottom: 378px;
+      display: inline-block;
+      width: 235.806px;
+      height: 326.777px;
+      background: url(../../../images/download/display/decor.svg) center/ 100% 100% no-repeat;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 114px;
+      bottom: 158px;
+      display: inline-block;
+      width: 467px;
+      height: 646px;
+      background: url(../../../images/download/display/phone.svg) center/ 100% 100% no-repeat;
+    }
+  }
+}
