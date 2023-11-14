@@ -25,6 +25,11 @@ const PRESETS = {
     slidesPerView: 3,
     centeredSlides: true,
     // spaceBetween: 40,
+    loop: true,
+    navigation: {
+      nextEl: ".winners__bt-right",
+      prevEl: ".winners__bt-left",
+    },
   }
 };
 

@@ -1,9 +1,9 @@
 .button {
-    padding: 18.036px 21.644px;
-    width: 248px;
-    height: 61.324px;
-    font-size: 17.135px;
-    border-radius: 9.92px;
+    @include option(width, 275);
+    @include option(height, 68);
+    @include option(font-size, 17, 19);
+    padding: 20px 24px;
+    border-radius: 11px;
     font-family: Montserrat;
     font-weight: 600;
     background:  #FFCD17;

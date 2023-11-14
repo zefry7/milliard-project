@@ -2,6 +2,7 @@
   height: 780px;
   background: linear-gradient(339deg, #3685ed88 12.94%, #70409383 48.17%,rgba(158, 12, 27, 0.514) 84.14%), url(../../../images/ticket/display/bg.jpg) center/ 100% 100% no-repeat;
   &__content {
+    @include wrapper(1440);
     padding: 90px 0 0 144px;
   }
   &__title {

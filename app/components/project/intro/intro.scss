@@ -1,94 +1,105 @@
 .intro {
+  background: radial-gradient(57.52% 55.87% at 46.74% 24.78%, #FF1422 0%, #4D001C 99.91%);
+  position: relative;
+  overflow: hidden;
 
   .button {
-    margin-bottom: 26px;
+    @include option(margin-bottom, 26, 16)
   }
 
   &__content {
-    position: relative;
-    @include option(padding, 89 143 0 143);
-    height: 811px;
-    background: radial-gradient(57.52% 55.87% at 46.74% 24.78%, #FF1422 0%, #4D001C 99.91%);
+    @include wrapper(1440);
+    @include option(padding, 89 143 0 143, 91 0 0 0);
     display: flex;
     flex-direction: column;
+    @include option(height, 811, 846);
   }
   &__name {
-    margin-bottom: 42px;
+    @include option(width, 701, 384);
+    @include option(height, 212, 116);
+    @include option(margin-bottom, 42, 1);
     align-self: center;
     position: relative;
     z-index: 2;
+
+    img {
+      width: 100%;
+    }
     &::before {
       content: "";
       display: inline-block;
       position: absolute;
       z-index: -1;
-      left: -76px;
-      top: 31px;
-      width: 845px;
-      height: 239.473px;
+      @include option(left, -76, -38);
+      @include option(top, 31, 16);
+      @include option(width, 845, 460);
+      @include option(height, 240, 130);
       background: url(../../../images/main/display/wood.webp) center/ 100% no-repeat;
     }
     &::after {
       content: "";
       position: absolute;
-      left: -28px;
-      bottom: 48px;
+      @include option(left, -28, -2);
+      @include option(bottom, 48, 22);
       z-index: -1;
       display: inline-block;
-      width: 756px;
-      height: 53px;
+      @include option(width, 756, 374);
+      @include option(height, 53, 28);
       border-radius: 756px;
       background: #780000;
       filter: blur(27px);
     }
   }
   &__label {
-    color: var(--white, #FFF);
-    font-size: 44.144px;
+    color: #FFF;
+    @include option(font-size, 44, 25);
     font-weight: 700;
-    line-height: 147%;
+    line-height: 170%;
     letter-spacing: -0.228px;
     text-transform: uppercase;
   }
   &__price {
-    margin-bottom: 33px;
+    @include option(margin-bottom, 33, 26);
     position: relative;
     z-index: 2;
+    @include option(width, 620, 400);
+    @include option(height, 65, 42);
+
+    img {
+      width: 100%;
+    }
     &::before {
       content: "";
       display: inline-block;
-      width: 633px;
-      height: 46px;
+      @include option(width, 633, 420);
+      @include option(height, 63);
       position: absolute;
-      top: 14px;
-      left: -5px;
+      @include option(top, 14, 0);
+      @include option(left, -5, 0);
       z-index: -1;
-      border-radius: 28.745px;
+      @include option(border-radius, 28);
       background: linear-gradient(270deg, #FF896F 9.32%, #FF2626 96.84%);
       filter: blur(23.612043380737305px);
     }
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 599px;
-      height: 67px;
-      position: absolute;
-      left: 0;
-      z-index: -1;
-      background: url(../../../images/main/display/price.png) center/ 100% 100% no-repeat;
-      filter: blur(3.593137264251709px);
-    }
   }
   &__tv-row {
+    position: relative;
+    z-index: 3;
     display: flex;
+    @include option(width, 275);
   }
   &__tv-img {
     margin-right: 16px;
+    @include option(min-width, 47);
+    @include option(height, 47);
+
+    img {
+      width: 100%;
+    }
   }
   &__tv-text {
-    width: 210px;
     color: #FFF;
-    font-size: 12px;
+    @include option(font-size, 12);
     font-weight: 600;
     line-height: 133%;
     transform-origin: center;
@@ -100,16 +111,19 @@
     background: #EA1D42;
   }
   &__people {
+    @include option(width, 874, 632);
+    @include option(height, 557, 402);
     position: absolute;
     bottom: 0;
-    right: 20px;
+    @include option(right, 20, -59);
     z-index: 2;
   }
   &__tree {
+    @include option(width, 600, 525);
+    @include option(height, 968, 847);
     position: absolute;
-    bottom: -42px;
-    right: 0;
-    z-index: 0;
+    @include option(top, 42, 258);
+    @include option(right, -159, -235);
   }
   &__decor {
     position: absolute;
@@ -123,22 +137,24 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    @include option(height, 59, 49);
   }
   &__center-text {
     display: flex;
     align-items: center;
     color: #FFF;
-    font-size: 17px;
+    @include option(width, 200, 180);
+    @include option(font-size, 17, 13);
     font-weight: 700;
     line-height: 127%;
     span {
-      margin-right: 5px;
+      @include option(margin-right, 5, 2);
       display: inline-block;
-      width: 22.977px;
-      height: 32.438px;
+      @include option(min-width, 22, 19);
+      @include option(height, 32, 26);
       text-align: center;
-      line-height: 32px;
-      font-size: 21px;
+      @include option(line-height, 32, 26);
+      @include option(font-size, 21, 17);
       font-weight: 500;
       color: black;
       background: linear-gradient(180deg, #FF9494 0%, #FFF 27.91%, #FFF 75%, #FF9494 100%);
@@ -152,32 +168,53 @@
   }
   &__right-text {
     position: absolute;
-    right: 31px;
+    @include option(right, 31, 0);
     &::before {
       content: "";
       display: inline-block;
-      width: 22px;
-      height: 18.123px;
+      @include option(width, 22, 18);
+      @include option(height, 18, 15);
       position: absolute;
       top: 50%;
-      left: -32px;
+      @include option(left, -32, -26);
       transform: translateY(-50%);
       background: url(../../../images/main/display/heard.svg) center/ 100% no-repeat;
     }
     span {
-      margin-right: 5px;
+      @include option(margin-right, 5, 2);
       display: inline-block;
-      width: 22.977px;
-      height: 32.438px;
+      @include option(width, 22, 19);
+      @include option(height, 32, 26);
       text-align: center;
-      line-height: 32px;
-      font-size: 21px;
+      @include option(line-height, 32, 26);
+      @include option(font-size, 21, 17);
       font-weight: 500;
       color: black;
       background: linear-gradient(180deg, #FF9494 0%, #FFF 27.91%, #FFF 75%, #FF9494 100%);
     }
     span:last-child {
       margin-right: 0px;
+    }
+  }
+}
+
+@include NOT-DESKTOP() {
+  .intro {
+    &__decor {
+      display: none;
+    }
+    &__content {
+      align-items: center;
+    }
+    &__row-users {
+      justify-content: space-between;
+      @include option(padding, 0 12 0 12, 0 20 0 20);
+    }
+    &__center-text {
+
+    }
+    &__right-text {
+      position: relative;
     }
   }
 }

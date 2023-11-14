@@ -71,7 +71,7 @@
     },
     "tvText": "Смотрите прямой эфир 1 января в 15:30 мск на НТВ и на нашем YouTube-канале",
     "people": {
-      "img": "../images/main/display/people.webp"
+      "img": "../images/main/display/people.png"
     },
     "tree": {
       "img": "../images/main/display/tree.png"
@@ -88,7 +88,7 @@
         "button": {
           "text": "Участвовать"
         },
-        "img": "../images/chance/display/marathon.webp"
+        "img": "../images/chance/display/marathon.svg"
       },
       {
         "title": "Шанс на авто",
@@ -96,7 +96,7 @@
         "button": {
           "text": "Купить билеты"
         },
-        "img": "../images/chance/display/car.webp"
+        "img": "../images/chance/display/car.png"
       },    {
         "title": "Подарок от Premier",
         "desc": "Все участники новогоднего тиража «Русского лото» получат подписку на месяц бесплатного просмотра кино и сериалов от сервиса PREMIER. ", 
@@ -176,7 +176,7 @@
         "present": "1 000 000 ₽"
       }
     ],
-    "woman": "../images/winners/display/woman.webp",
+    "woman": "../images/winners/display/woman.png",
     "button": {
       "text": "Хочу так же!"
     }
@@ -350,5 +350,43 @@
         "href": "#"
       }
     ]
-  }
+  },
+  "decor": [
+    {
+      "img":"../images/decor/display/decor-footer-1.svg"
+    }, 
+    {
+      "img": "../images/decor/display/decor-ticket-1.svg"
+    },
+    {
+      "img": "../images/decor/display/decor-download-1.svg"
+    },
+    {
+      "img": "../images/decor/display/decor-join-1.svg"
+    },    
+    {
+      "img": "../images/decor/display/decor-join-2.svg"
+    },
+    {
+      "img": "../images/decor/display/decor-history-1.svg"
+    },
+    {
+      "img": "../images/decor/display/decor-chance-1.svg"
+    },    
+    {
+      "img": "../images/decor/display/decor-chance-2.svg"
+    },    
+    {
+      "img": "../images/decor/display/decor-winners-1.svg"
+    },
+    {
+      "img": "../images/decor/display/decor-intro-1.svg"
+    },
+    {
+      "img": "../images/decor/display/decor-intro-2.svg"
+    },
+    {
+      "img": "../images/decor/display/decor-intro-3.svg"
+    }
+  ]
 }

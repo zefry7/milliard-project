@@ -1,10 +1,9 @@
 .download {
-  height: 1015px;
   position: relative;
-  background: url(../../../images/download/display/bg.svg) center/ 100% 100% no-repeat;
+  background: url(../../../images/download/display/bg.svg) center/ 100% no-repeat;
   &__content {
-    padding: 89px 0 0 143px;
-
+    @include wrapper(1440);
+    padding: 89px 0 85px 143px;
   }
   &__title {
     margin-bottom: 40px;

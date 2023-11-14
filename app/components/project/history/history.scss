@@ -1,6 +1,7 @@
 .history {
   position: relative;
   &__content {
+    @include wrapper(1440);
     @include option(padding, 152 143 104 143)
   }
   &__title {

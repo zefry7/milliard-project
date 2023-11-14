@@ -1,10 +1,10 @@
 .join {
-  width: 1442px;
-  height: 1431px;
   position: relative;
-  background: url(../../../images/join/display/bg.svg) center/ 100% 100% no-repeat;
+  background: url(../../../images/join/display/bg.svg) center/ 100% no-repeat;
   &__content {
-    @include option(padding, 103 0 0 145)
+    @include wrapper(1440);
+    @include option(padding, 103 0 67 145);
+    z-index: 2;
   }
   &__title {
     color: #FFCD17;
@@ -89,6 +89,8 @@
     bottom: 70px;
   }
   &__decor {
-
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

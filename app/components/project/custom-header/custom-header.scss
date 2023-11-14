@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  @include option(padding, 35 0 0 31);
+  @include option(padding, 35 0 0 31, 27 0 0 0);
 
   .custom-menu__item {
     color: var(--white, #FFF);
@@ -27,16 +27,20 @@
 
 
 .custom-header {
-  // Константы
-  // @mixin mod($mod) {
-  //   .custom-header_#{$mod} & {
-  //     @content;
-  //   }
-  // }
 
   &__logo {
+    @include option(width, 95, 59);
+    @include option(height, 89, 56);
     position: absolute;
-    @include option(left, 31);
-    @include option(top, 35);
+    @include option(left, 31, 0);
+    @include option(top, 35, 0);
+  }
+}
+
+@include NOT-DESKTOP() {
+  .custom-header {
+    &__logo {
+      position: relative;
+    }
   }
 }

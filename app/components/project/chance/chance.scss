@@ -1,6 +1,8 @@
 .chance {
   position: relative;
-
+  overflow: hidden;
+  width: 100%;
+  background: url(../../../images/chance/display/bc-center.svg) left top/ 100% no-repeat;
   .button {
     width: 275px;
     height: 68px;
@@ -9,15 +11,18 @@
   &__content {
     display: flex;
     flex-direction: column;
-    background: url(../../../images/chance/display/bc-center.svg) center 100% no-repeat;
   }
 
   &__block-top {
-    @include option(padding, 141 0 0 143);
-    height: 785px;
     position: relative;
-    background: url(../../../images/chance/display/bc-top.svg) left bottom/ cover no-repeat;
-
+    z-index: 5;
+    height: 760px;
+    background: url(../../../images/chance/display/bc-top.svg) left bottom/ 100% no-repeat;
+    &-wrapper {
+      @include option(padding, 141 0 0 143);
+      @include wrapper(1440);
+      height: 100%;
+    }
     .chance__title {
       position: relative;
       z-index: 4;
@@ -39,15 +44,17 @@
     }
     .chance__img {
       position: absolute;
-      top: -20px;
-      right: 0;
+      bottom: 0;
+      right: -558px;
     }
   }
   &__block-center {
-    @include option(padding, 155 127 0 0);
-    align-self: flex-end;
     height: 601px;
-
+    @include wrapper(1440);
+    @include option(padding, 130 127 0 0);
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     .chance__title {
       position: relative;
       z-index: 4;
@@ -69,16 +76,20 @@
     }
     .chance__img {
       position: absolute;
-      top: 0;
-      left: 0;
+      bottom: -440px;
+      left: -370px;
     }
   }
   &__block-bottom {
-    @include option(padding, 255 0 0 143);
     height: 830px;
     position: relative;
     background: url(../../../images/chance/display/bc-bottom.svg) left top/ cover no-repeat;
 
+    &-wrapper {
+      @include wrapper(1440);
+      @include option(padding, 255 0 0 143);
+      height: 100%;
+    }
     .chance__title {
       position: relative;
       z-index: 4;
@@ -107,13 +118,18 @@
   &__decor-top {
     position: absolute;
     top: -28px;
-    width: 100%;
+    left: 50%;
+    z-index: 7;
+    transform: translateX(-50%);
+    width: 1509px;
     height: 165px;
   }
   &__decor-bottom {
     position: absolute;
     bottom: 30px;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1509px;
     height: 165px;
   }
 }

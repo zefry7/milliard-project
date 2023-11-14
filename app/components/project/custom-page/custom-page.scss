@@ -1,5 +1,8 @@
 @import "../../framework/page/page";
 
 .custom-page {
-  @extend %DEFAULT;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }

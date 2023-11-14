@@ -1,6 +1,7 @@
 .footer {
   background: #0F1114;
   &__content {
+    @include wrapper(1440);
     padding: 80px 0 62px 208px;
     display: flex;
     gap: 100px;
@@ -34,9 +35,6 @@
     margin-bottom: 16px;
     display: flex;
     gap: 31px;
-  }
-  &__gr {
-
   }
   &__text-company {
     margin-bottom: 25px;

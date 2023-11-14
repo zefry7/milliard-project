@@ -20,6 +20,8 @@ mixin join(content, params)
             else
               p.join__column-text!= v.text
       +button(content.button)
-    .join__man 
-      img(src!=content.man.img, alt="")
+      .join__man 
+        img(src!=content.man.img, alt="")
+    .join__decor
+      img(src!=content.decor.img, alt="")
 
