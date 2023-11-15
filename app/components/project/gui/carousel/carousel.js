@@ -22,7 +22,7 @@ const PRESETS = {
     freeMode: true
   },
   carouselWinners: {
-    slidesPerView: 3,
+    slidesPerView: "auto",
     centeredSlides: true,
     // spaceBetween: 40,
     loop: true,

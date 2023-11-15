@@ -92,3 +92,95 @@
   }
 
 }
+
+@include NOT-DESKTOP() {
+  .decor {
+    &__footer-1 {
+      width: 180.988px;
+      height: 163.641px;
+      position: absolute;
+      bottom: 546px;
+      left: 394px;
+    }
+    &__ticket-1 {
+      width: 233.898px;
+      height: 136.232px;
+      position: absolute;
+      bottom: 1366px;
+      left: 513px;
+    }
+    &__download-1 {
+      width: 291.188px;
+      height: 251.255px;
+      position: absolute;
+      bottom: 2296px;
+      left: 1051px;
+    }
+    &__join-1 {
+      width: 280.261px;
+      height: 288.986px;
+      position: absolute;
+      bottom: 3400px;
+      left: 595px;
+    }
+    &__join-2 {
+      width: 286.765px;
+      height: 191.332px;
+      position: absolute;
+      bottom: 4830px;
+      left: 459px;
+    }
+    &__history-1 {
+      width: 375.036px;
+      height: 250.962px;
+      position: absolute;
+      bottom: 6048px;
+      left: 860px;
+    }
+    &__chance-1 {
+      width: 224.186px;
+      height: 166.485px;
+      position: absolute;
+      bottom: 6900px;
+      left: 764px;
+    }
+    &__chance-2 {
+      width: 224.186px;
+      height: 166.485px;
+      position: absolute;
+      bottom: 7574px;
+      left: 682px;
+    }
+    &__winners-1 {
+      width: 228.596px;
+      height: 144.21px;
+      position: absolute;
+      bottom: 8415px;
+      left: 127px;
+    }
+    &__intro-1 {
+      width: 262.251px;
+      height: 199.676px;
+      position: absolute;
+      bottom: 9246px;
+      left: 262px;
+    }
+    &__intro-2 {
+      @include option(width, 96);
+      @include option(height, 81);
+      position: absolute;
+      @include option(top, 30);
+      @include option(left, 10);
+      img {
+        width: 100%;
+      }
+    }
+    &__intro-3 {
+      width: 233.417px;
+      height: 120.242px;
+      position: absolute;
+      top: 65px;
+      left: 1034px;
+    }
+  }
+}

@@ -21,7 +21,8 @@ mixin decor(content, params)
     .decor__intro-1
       img(src!=content[9].img, alt="")
     .decor__intro-2
-      img(src!=content[10].img, alt="")
+      +picture(content[10])
+      //- img(src!=content[10].img, alt="")
     .decor__intro-3
       img(src!=content[11].img, alt="")
 

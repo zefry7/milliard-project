@@ -5,16 +5,16 @@ mixin chance(content, params)
         .chance__block-top-wrapper
           h2.chance__title!= content.blocks[0].title
           p.chance__description!= content.blocks[0].desc
-          +button(content.blocks[0].button)
           .chance__img 
             img(src!=content.blocks[0].img, alt="")
+          +button(content.blocks[0].button)
       .chance__block-center 
         .chance__block-center-wrapper
           h2.chance__title!= content.blocks[1].title
           p.chance__description!= content.blocks[1].desc
-          +button(content.blocks[1].button)
           .chance__img 
             img(src!=content.blocks[1].img, alt="")
+          +button(content.blocks[1].button)
       .chance__block-bottom
         .chance__block-bottom-wrapper
           h2.chance__title!= content.blocks[2].title

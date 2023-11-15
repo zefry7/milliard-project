@@ -1,46 +1,66 @@
 .ticket {
-  height: 780px;
   background: linear-gradient(339deg, #3685ed88 12.94%, #70409383 48.17%,rgba(158, 12, 27, 0.514) 84.14%), url(../../../images/ticket/display/bg.jpg) center/ 100% 100% no-repeat;
+
+  .button {
+    align-self: center;
+  }
   &__content {
     @include wrapper(1440);
-    padding: 90px 0 0 144px;
+    @include option(padding, 90 0 292 144, 32 20 86 20);
   }
   &__title {
-    width: 390px;
-    margin-bottom: 40px;
+    @include option(width, 390, 247);
+    @include option(margin-bottom, 40, 66);
     color: #FFF;
-    font-size: 55px;
+    @include option(font-size, 55, 34);
     font-weight: 800;
     line-height: 112%;
-    letter-spacing: 2px;
+    @include option(letter-spacing, 2);
     text-transform: uppercase;
   }
   &__row-tv{
-    margin-bottom: 31px;
+    @include option(margin-bottom, 31, 58);
     display: flex;
     align-items: center;
-    gap: 20px;
+    @include option(gap, 20, 16);
     &-img {
-      height: 58px;
-      width: 58px;
+      @include option(height, 58, 125);
+      @include option(width, 58, 125);
       img {
         height: 100%;
         width: 100%;
       }
     }
     &-text {
-      width: 377px;
+      @include option(width, 377, 297);
       color: #FFF;
-      font-size: 16px;
+      @include option(font-size, 16, 18);
       font-weight: 500;
       line-height: 143%;
 
       span {
         color:  #FFF;
-        font-size: 16px;
+        @include option(font-size, 16, 18);
         font-style: normal;
         font-weight: 700;
         line-height: 143%;
+      }
+    }
+  }
+}
+
+@include NOT-DESKTOP() {
+  .ticket {
+    background: linear-gradient(339deg, #3685ed88 12.94%, #70409383 48.17%,rgba(158, 12, 27, 0.514) 84.14%), url(../../../images/ticket/mobile/bg.jpg) center/ 100% 100% no-repeat;
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+    &__row-tv{
+      flex-direction: column;
+      width: 100%;
+      &-text {
+        text-align: center;
       }
     }
   }

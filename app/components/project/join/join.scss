@@ -1,83 +1,90 @@
 .join {
   position: relative;
-  background: url(../../../images/join/display/bg.svg) center/ 100% no-repeat;
+  background: radial-gradient(59.09% 58.84% at 80.51% 49.69%, #F03D54 0%, #A00015 100%);
+  overflow: hidden;
   &__content {
     @include wrapper(1440);
-    @include option(padding, 103 0 67 145);
+    @include option(padding, 103 0 67 145, 57 20 0 20);
     z-index: 2;
   }
   &__title {
     color: #FFCD17;
-    font-size: 60px;
+    @include option(font-size, 60, 34);
     font-weight: 800;
-    line-height: 75%;
-    letter-spacing: -0.2px;
+    line-height: 100%;
+    @include option(letter-spacing, -0.2);
     text-transform: uppercase;
   }
   &__subtitle {
     color: #FFF;
-    font-size: 40px;
+    @include option(font-size, 40, 25);
     font-weight: 700;
     line-height: 165%;
-    letter-spacing: -0.2px;
+    @include option(letter-spacing, -0.2);
     text-transform: uppercase;
   }
   &__description {
-    margin-bottom: 60px;
-    width: 535px;
+    @include option(margin-bottom, 60);
+    @include option(width, 535, 372);
     color: #FFF;
-    font-size: 22px;
+    @include option(font-size, 22, 18);
     font-weight: 500;
     line-height: 145%;
   }
   &__info {
-    margin-bottom: 58px;
+    @include option(margin-bottom, 58, 32);
     display: grid;
     grid-template-columns: repeat(2, max-content);
     grid-template-rows: repeat(2, max-content);
-    gap: 46px;
+    @include option(gap, 46, 20);
   }
   &__column {
-    padding: 30px 25px 0 36px;
-    width: 392px;
-    height: 407px;
+    @include option(padding, 30 25 0 36);
+    @include option(width, 392);
+    @include option(height, 407);
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
+    @include option(border-radius, 15);
     background: #FFF;
     &-row {
-      height: 147px;
+      @include option(height, 147);
       display: flex;
     }
     &-number {
-      width: 89px;
+      @include option(max-width, 89);
+      width: 100%;
       color: #FFCD17;
-      font-size: 117px;
+      @include option(font-size, 117);
       font-weight: 700;
       line-height: 100%;
-      letter-spacing: -0.2px;
+      @include option(letter-spacing, -0.2);
       text-transform: uppercase;
     }
     &-img {
-
+      img {
+        width: 100%;
+        height: 80%;
+      }
     }
     &-title {
-      margin-bottom: 10px;
+      @include option(margin-bottom, 10);
       color: #141414;
-      font-size: 24px;
+      @include option(font-size, 24);
       font-weight: 700;
       line-height: 66%;
     }
     &-text {
       color: #141414;
-      font-size: 16px;
+      @include option(font-size, 16);
       font-weight: 500;
       line-height: 150%;
 
       &-lines {
         list-style: disc !important;
         li {
-          margin-left: 25px;
+          @include option(font-size, 14);
+          line-height: 140%;
+          @include option(margin-left, 25);
           list-style: disc !important;
         }
       }
@@ -85,12 +92,51 @@
   }
   &__man {
     position: absolute;
-    right: 8px;
-    bottom: 70px;
+    @include option(right, 8, 30);
+    @include option(bottom, 70, -385);
+    @include option(width, 541, 349);
+    @include option(height, 1102, 740);
+    &:before {
+      content: "";
+      position: absolute;
+      @include option(top, -3, -53);
+      @include option(left, -65, -35);
+      z-index: -1;
+      display: inline-block;
+      @include option(width, 643, 425);
+      @include option(height, 643, 425);
+      @include option(border-radius, 643, 425);
+      background: radial-gradient(50% 50% at 50% 50%, #FFE27A 0%, rgba(255, 0, 0, 0.00) 100%);
+    }
   }
   &__decor {
     position: absolute;
-    top: 0;
-    left: 0;
+    @include option(width, 1207);
+    @include option(height, 1103);
+    @include option(top, 0, -171);
+    @include option(left, 0, -302);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@include NOT-DESKTOP() {
+  .join {
+    background: radial-gradient(152.66% 21.7% at 42.15% 79.33%, #F03D54 0%, #A00015 100%);
+    .button {
+      align-self: center;
+      @include option(margin-bottom, 398);
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+    &__info {
+      grid-template-columns: repeat(1, max-content);
+      grid-template-rows: repeat(4, max-content);
+      @include option(margin, 0 -9 32 -9);
+    }
   }
 }

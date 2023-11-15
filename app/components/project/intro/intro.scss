@@ -4,7 +4,9 @@
   overflow: hidden;
 
   .button {
-    @include option(margin-bottom, 26, 16)
+    @include option(margin-bottom, 26, 16);
+    position: relative;
+    z-index: 3;
   }
 
   &__content {
@@ -51,18 +53,20 @@
     }
   }
   &__label {
+    position: relative;
+    z-index: 3;
     color: #FFF;
     @include option(font-size, 44, 25);
     font-weight: 700;
     line-height: 170%;
-    letter-spacing: -0.228px;
+    @include option(letter-spacing, -0.228);
     text-transform: uppercase;
   }
   &__price {
     @include option(margin-bottom, 33, 26);
     position: relative;
-    z-index: 2;
-    @include option(width, 620, 400);
+    z-index: 3;
+    @include option(width, 620, 390);
     @include option(height, 65, 42);
 
     img {
@@ -71,11 +75,11 @@
     &::before {
       content: "";
       display: inline-block;
-      @include option(width, 633, 420);
+      @include option(width, 633, 408);
       @include option(height, 63);
       position: absolute;
-      @include option(top, 14, 0);
-      @include option(left, -5, 0);
+      @include option(top, 14, -5);
+      @include option(left, -5, -9);
       z-index: -1;
       @include option(border-radius, 28);
       background: linear-gradient(270deg, #FF896F 9.32%, #FF2626 96.84%);
@@ -89,7 +93,7 @@
     @include option(width, 275);
   }
   &__tv-img {
-    margin-right: 16px;
+    @include option(margin-right, 16);
     @include option(min-width, 47);
     @include option(height, 47);
 
@@ -104,12 +108,6 @@
     line-height: 133%;
     transform-origin: center;
   }
-  &__row-users {
-    position: relative;
-    z-index: 5;
-    height: 59px;
-    background: #EA1D42;
-  }
   &__people {
     @include option(width, 874, 632);
     @include option(height, 557, 402);
@@ -117,13 +115,21 @@
     bottom: 0;
     @include option(right, 20, -59);
     z-index: 2;
+
+    img {
+      width: 100%;
+    }
   }
   &__tree {
+    z-index: 1;
     @include option(width, 600, 525);
     @include option(height, 968, 847);
     position: absolute;
     @include option(top, 42, 258);
     @include option(right, -159, -235);
+    img {
+      width: 100%;
+    }
   }
   &__decor {
     position: absolute;
@@ -133,38 +139,45 @@
     filter: blur(0.5px);
   }
   &__row-users {
+    @include option(height, 59, 49);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    @include option(height, 59, 49);
+    z-index: 5;
+    background: #EA1D42;
   }
   &__center-text {
     display: flex;
     align-items: center;
-    color: #FFF;
-    @include option(width, 200, 180);
-    @include option(font-size, 17, 13);
-    font-weight: 700;
-    line-height: 127%;
-    span {
-      @include option(margin-right, 5, 2);
-      display: inline-block;
-      @include option(min-width, 22, 19);
-      @include option(height, 32, 26);
-      text-align: center;
-      @include option(line-height, 32, 26);
-      @include option(font-size, 21, 17);
-      font-weight: 500;
-      color: black;
-      background: linear-gradient(180deg, #FF9494 0%, #FFF 27.91%, #FFF 75%, #FF9494 100%);
+    &-part-1 {
+      color: #FFF;
+      @include option(width, 170, 69);
+      @include option(font-size, 17, 13);
+      font-weight: 700;
+      line-height: 127%;
     }
-    span:first-child {
-      margin-left: 10px;
+    &-part-2 {
+      span {
+        @include option(margin-right, 5, 2);
+        display: inline-block;
+        @include option(min-width, 22, 19);
+        @include option(height, 32, 26);
+        text-align: center;
+        @include option(line-height, 32, 26);
+        @include option(font-size, 21, 17);
+        font-weight: 500;
+        color: black;
+        background: linear-gradient(180deg, #FF9494 0%, #FFF 27.91%, #FFF 75%, #FF9494 100%);
+      }
+      span:first-child {
+        @include option(margin-left, 10, 0);
+      }
+      span:last-child {
+        @include option(margin-right, 10);
+      }
     }
-    span:last-child {
-      margin-right: 10px;
-    }
+    
   }
   &__right-text {
     position: absolute;
@@ -211,7 +224,7 @@
       @include option(padding, 0 12 0 12, 0 20 0 20);
     }
     &__center-text {
-
+      flex-direction: row-reverse;
     }
     &__right-text {
       position: relative;

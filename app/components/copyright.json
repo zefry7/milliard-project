@@ -294,10 +294,10 @@
   "ticket": {
     "title": "Купите тот самый билет!",
     "tv": {
-      "img": "../images/ticket/display/tv-logo.jpg",
+      "img": "../images/ticket/display/tv-logo.svg",
       "text": {
         "part1": "Прямую трансляцию новогоднего тиража смотрите",
-        "part2": "1 января в 15:30 мск на НТВ и на нашем YouTube-канале"
+        "part2": " 1 января в 15:30 мск на НТВ и на нашем YouTube-канале"
       }
     },
     "button": {
@@ -383,7 +383,18 @@
       "img": "../images/decor/display/decor-intro-1.svg"
     },
     {
-      "img": "../images/decor/display/decor-intro-2.svg"
+      "img": "../images/decor/display/decor-intro-2.svg",
+      "alt": "Оформление",
+      "source": [
+        {
+          "srcSet": "../images/decor/display/decor-intro-2.svg",
+          "media": "(min-width: 1024px)"
+        },
+        {
+          "srcSet": "../images/decor/mobile/decor-intro-2.svg",
+          "media": "(max-width: 1024px)"
+        }
+      ]
     },
     {
       "img": "../images/decor/display/decor-intro-3.svg"

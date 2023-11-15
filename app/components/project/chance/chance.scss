@@ -2,12 +2,12 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  background: url(../../../images/chance/display/bc-center.svg) left top/ 100% no-repeat;
-  .button {
-    width: 275px;
-    height: 68px;
-  }
+  background: url(../../../images/chance/display/bc-center.svg) center/ 100% no-repeat;
 
+  .button {
+    position: relative;
+    z-index: 5;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -16,28 +16,31 @@
   &__block-top {
     position: relative;
     z-index: 5;
-    height: 760px;
-    background: url(../../../images/chance/display/bc-top.svg) left bottom/ 100% no-repeat;
+    @include option(height, 760, 840);
+    background: url(../../../images/chance/display/bc-top.svg) bottom/ 1440px 100% no-repeat;
     &-wrapper {
-      @include option(padding, 141 0 0 143);
+      @include option(padding, 141 0 0 143, 100 0 0 18);
       @include wrapper(1440);
       height: 100%;
     }
     .chance__title {
+      @include option(width, 1055, 377);
       position: relative;
       z-index: 4;
-      margin-bottom: 17px;
+      @include option(margin-bottom, 17);
       color: #FFF;
-      font-size: 60px;
+      @include option(font-size, 60, 34);
       font-weight: 800;
       line-height: 95%;
-      letter-spacing: -0.2px;
+      @include option(letter-spacing, -0.2);
       text-transform: uppercase;
     }
     .chance__description {
-      margin-bottom: 30px;
-      width: 454px;
-      font-size: 22px;
+      @include option(margin-bottom, 30, 275);
+      @include option(width, 454, 372);
+      @include option(font-size, 22, 18);
+      position: relative;
+      z-index: 5;
       font-weight: 500;
       line-height: 145%;
       color: #FFF;
@@ -45,91 +48,140 @@
     .chance__img {
       position: absolute;
       bottom: 0;
-      right: -558px;
+      @include option(width, 1615, 1000);
+      @include option(height, 2007, 1281);
+      @include option(bottom, -80, 60);
+      @include option(right, -640, -480);
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   &__block-center {
-    height: 601px;
+    @include option(height, 601);
+    @include option(padding, 130 127 0 0, 0 0 0 18);
     @include wrapper(1440);
-    @include option(padding, 130 127 0 0);
     width: 100%;
+    position: static;
     display: flex;
     justify-content: flex-end;
     .chance__title {
       position: relative;
-      z-index: 4;
-      margin-bottom: 17px;
+      z-index: 5;
+      @include option(margin-bottom, 17);
       color: #FFF;
-      font-size: 40px;
+      @include option(font-size, 40, 25);
       font-weight: 800;
       line-height: 95%;
-      letter-spacing: -0.2px;
+      @include option(letter-spacing, -0.2);
       text-transform: uppercase;
     }
     .chance__description {
-      margin-bottom: 30px;
-      width: 454px;
-      font-size: 22px;
+      @include option(margin-bottom, 30, 313);
+      @include option(width, 454, 325);
+      @include option(font-size, 22, 18);
+      position: relative;
+      z-index: 5;
       font-weight: 500;
       line-height: 145%;
       color: #FFF;
     }
     .chance__img {
       position: absolute;
-      bottom: -440px;
-      left: -370px;
     }
   }
   &__block-bottom {
-    height: 830px;
+    @include option(height, 830);
     position: relative;
-    background: url(../../../images/chance/display/bc-bottom.svg) left top/ cover no-repeat;
+    background: url(../../../images/chance/display/bc-bottom.svg) left top/ 1440px 100% no-repeat;
 
     &-wrapper {
       @include wrapper(1440);
-      @include option(padding, 255 0 0 143);
+      @include option(padding, 255 0 0 143, 173 19 0 19);
       height: 100%;
     }
     .chance__title {
       position: relative;
       z-index: 4;
-      margin-bottom: 17px;
+      @include option(margin-bottom, 17, 10);
       color: #FFF;
-      font-size: 40px;
+      @include option(font-size, 40, 25);
       font-weight: 800;
       line-height: 95%;
-      letter-spacing: -0.2px;
+      @include option(letter-spacing, -0.2);
       text-transform: uppercase;
     }
     .chance__description {
-      margin-bottom: 30px;
-      width: 454px;
-      font-size: 22px;
+      @include option(margin-bottom, 30, 336);
+      @include option(width, 454, 312);
+      @include option(font-size, 22, 18);
       font-weight: 500;
       line-height: 145%;
       color: #FFF;
     }
     .chance__img {
       position: absolute;
-      top: 0;
-      right: 0;
+      @include option(top, 125, 318);
+      @include option(right, 42, -60);
+      @include option(width, 600, 482);
+      @include option(height, 451, 358);
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
   &__decor-top {
     position: absolute;
-    top: -28px;
+    @include option(top, -28, 0);
     left: 50%;
     z-index: 7;
     transform: translateX(-50%);
-    width: 1509px;
-    height: 165px;
+    @include option(width, 1509);
+    @include option(height, 165, 100);
+    img {
+      height: 100%;
+    }
   }
   &__decor-bottom {
     position: absolute;
-    bottom: 30px;
+    @include option(bottom, 30, -15);
     left: 50%;
     transform: translateX(-50%);
-    width: 1509px;
-    height: 165px;
+    @include option(width, 1509);
+    @include option(height, 165, 100);
+    img {
+      height: 100%;
+    }
+  }
+}
+
+
+@include NOT-DESKTOP() {
+  .chance {
+    .button {
+      align-self: center;
+    }
+    &__block-top {
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+    }
+    &__block-center {
+      justify-content: start;
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &__block-bottom {
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 }
