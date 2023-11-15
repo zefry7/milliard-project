@@ -29,27 +29,27 @@
     "links": [
       {
         "label": "о лотерее",
-        "href": "#"
+        "href": "#history"
       },
       {
         "label": "акции",
-        "href": "#"
+        "href": "#chance"
       },
       {
         "label": "Как участвовать",
-        "href": "#"
+        "href": "#join"
       },        
       {
         "label": "Победители",
-        "href": "#"
+        "href": "#winners"
       },        
       {
         "label": "безопасность",
-        "href": "#"
+        "href": "#onlineBuy"
       },
       {
         "label": "приложение",
-        "href": "#"
+        "href": "#download"
       }
     ]
   },

@@ -19,7 +19,7 @@
   &__name {
     @include option(width, 701, 384);
     @include option(height, 212, 116);
-    @include option(margin-bottom, 42, 1);
+    @include option(margin-bottom, 42, 10);
     align-self: center;
     position: relative;
     z-index: 2;
@@ -54,16 +54,17 @@
   }
   &__label {
     position: relative;
-    z-index: 3;
+    z-index: 4;
     color: #FFF;
     @include option(font-size, 44, 25);
     font-weight: 700;
-    line-height: 170%;
+    line-height: 140%;
     @include option(letter-spacing, -0.228);
     text-transform: uppercase;
   }
   &__price {
     @include option(margin-bottom, 33, 26);
+    @include option(margin-left, -30, -5);
     position: relative;
     z-index: 3;
     @include option(width, 620, 390);
@@ -75,11 +76,11 @@
     &::before {
       content: "";
       display: inline-block;
-      @include option(width, 633, 408);
+      @include option(width, 633, 400);
       @include option(height, 63);
       position: absolute;
-      @include option(top, 14, -5);
-      @include option(left, -5, -9);
+      @include option(top, 10, -5);
+      @include option(left, 10, -9);
       z-index: -1;
       @include option(border-radius, 28);
       background: linear-gradient(270deg, #FF896F 9.32%, #FF2626 96.84%);
@@ -112,7 +113,7 @@
     @include option(width, 874, 632);
     @include option(height, 557, 402);
     position: absolute;
-    bottom: 0;
+    @include option(bottom, -2);
     @include option(right, 20, -59);
     z-index: 2;
 

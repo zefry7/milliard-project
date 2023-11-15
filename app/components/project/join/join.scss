@@ -96,6 +96,8 @@
     @include option(bottom, 70, -385);
     @include option(width, 541, 349);
     @include option(height, 1102, 740);
+    display: flex;
+    justify-content: center;
     &:before {
       content: "";
       position: absolute;

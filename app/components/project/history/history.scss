@@ -2,31 +2,31 @@
   position: relative;
   &__content {
     @include wrapper(1440);
-    @include option(padding, 152 143 104 143)
+    @include option(padding, 152 143 104 143, 56 19 443 19);
   }
   &__title {
-    margin-bottom: 60px;
+    @include option(margin-bottom, 60, 32);
     color: #191B27;
-    font-size: 60px;
+    @include option(font-size, 60, 34);
     font-weight: 800;
-    line-height: 95%;
-    letter-spacing: -0.2px;
+    line-height: 102%;
+    @include option(letter-spacing, -0.2);
     text-transform: uppercase;
     span {
       color: #EA1D42;
-      font-size: 60px;
+      @include option(font-size, 60, 34);
       font-weight: 800;
-      line-height: 57px;
-      letter-spacing: -0.2px;
+      line-height: 102%;
+      @include option(letter-spacing, -0.2);
       text-transform: uppercase;
     }
 
   }
   &__row-desc {
-    margin-bottom: 110px;
+    @include option(margin-bottom, 110, 60);
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    @include option(gap, 50, 10);
   }
   &__column {
     min-width: 183px;
@@ -34,52 +34,60 @@
     flex-direction: column;
     align-items: center;
     &-img {
-      height: 178px;
+      @include option(height, 178, 130);
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       img {
+        height: 100%;
       }
     }
     &-text {
       color: #141414;
       text-align: center;
-      font-size: 16px;
+      @include option(font-size, 16, 15);
       font-weight: 500;
       line-height: 150%;
     }
   }
   &__bottom-block {
-
+    display: flex;
+    flex-direction: column
   }
   &__title-statistics {
-    margin-bottom: 60px;
-    width: 800px;
+    @include option(margin-bottom, 60, 20);
+    @include option(width, 800, 370);
     color: #141414;
-    font-size: 35px;
+    @include option(font-size, 35, 25);
     font-weight: 800;
     line-height: 125%;
     letter-spacing: -0.2px;
     text-transform: uppercase;
   }
   &__statistics {
-    margin-bottom: 71px;
+    @include option(margin-bottom, 71, 60);
     & p:last-child {
-      font-size: 61px;
-      line-height: 40%;
+      .history__part1 {
+        @include option(font-size, 61, 44);
+      }
     }
   }
   &__text {
-    margin-bottom: 36px;
-    color: #EA1D42;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 66%;
+    display: flex;
+    flex-direction: column;
+    .history__part1 {
+      @include option(margin-bottom, 5, 20);
+      color: #EA1D42;
+      @include option(font-size, 36, 30);
+      font-weight: 700;
+      line-height: 66%;
+    }
 
-    span {
+    .history__part2 {
+      @include option(margin-bottom, 36, 5);
       color: #141414;
-      font-size: 22px;
+      @include option(font-size, 22, 18);
       font-weight: 500;
       line-height: 110%;
     }
@@ -87,7 +95,48 @@
   &__people {
     position: absolute;
     bottom: 0;
-    right: 50px;
+    @include option(right, 50, 0);
+    display: flex;
+    justify-content: center;
+    img {
+      @include option(width, 700, 380);
+      @include option(height, 680, 370);
+    }
   }
 }
 
+@include NOT-DESKTOP() { 
+  .history {
+    .button {
+      align-self: center;
+    }
+    &__row-desc {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+    }
+    &__text {
+      flex-direction: column-reverse;
+      .history__part1 {
+        text-transform: lowercase;
+      }
+      .history__part2 {
+        text-transform: capitalize;
+      }
+    }
+    &__people {
+      width: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        display: inline-block;
+        @include option(width, 643, 425);
+        @include option(height, 643, 425);
+        @include option(border-radius, 643, 425);
+        background: rgba(190, 216, 255, 0.46);
+        filter: blur(72.732421875px);
+      }
+    }
+  }
+}
